@@ -1,5 +1,5 @@
 Custom License
- 
+
 This license gives most of the freedoms of the MIT license, except:
    - You may not modify or redistribute the code, without the author's direct consent
    - You may not repost or distribute my mod in any form of versions a1.4.3_02 and later, where the files are giving the distributor any means of profit, including but not limited to: a paywall or advertisements.
