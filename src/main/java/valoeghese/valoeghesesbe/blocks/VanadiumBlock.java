@@ -28,20 +28,4 @@ public class VanadiumBlock extends BlockBase
 		setResistance(15.0F);
 		setHarvestLevel("pickaxe", 1);
 	}
-	
-	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {
-        ItemStack itemstack = playerIn.getHeldItem(hand);
-        
-        if (!itemstack.isEmpty() && itemstack.getItem() == Items.LEAD)
-        {
-        	playerIn.sendMessage(new TextComponentString("§b§lCongrats. You activated a secret line of code."));
-            return true;
-        }
-        else
-        {
-            return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
-        }
-    }
 }
