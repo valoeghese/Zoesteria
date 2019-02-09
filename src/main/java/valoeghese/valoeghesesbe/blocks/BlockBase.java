@@ -34,3 +34,4 @@ public class BlockBase extends Block implements IHasModel
 	}
 
 }
+

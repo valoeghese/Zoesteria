@@ -90,3 +90,4 @@ public class BlockModdedShrub extends BlockBush implements IHasModel
 		Main.proxy.registerModel(Item.getItemFromBlock(this), 0);
 	}
 }
+

@@ -236,3 +236,4 @@ public class BlockSmallBush extends BlockBush implements IShearable, IHasModel
 	}
 
 }
+
