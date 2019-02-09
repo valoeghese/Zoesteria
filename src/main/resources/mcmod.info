@@ -1,0 +1,16 @@
+[
+{
+  "modid": "valoegheses_be",
+  "name": "Zoesteria Biomes",
+  "description": "A biomes mod by valoeghese",
+  "version": "Alpha 1.4.8",
+  "mcversion": "1.12.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Valoeghese"],
+  "credits": "\n-   Zoesteria by Valoeghese (MC Username magma_dude)\n-   Freebi Peers for contributing the idea of the Australian Outback Biome\n-   Lafinlunatic (twitch username) for contributing the idea of the Ghost Forest biome",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

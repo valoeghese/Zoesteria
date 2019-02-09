@@ -1,0 +1,8 @@
+{
+    "variants":
+    {
+        "explode=false": { "model": "valoegheses_be:tnt_true" },
+        "explode=true": { "model": "valoegheses_be:tnt_true" },
+        "normal": { "model": "valoegheses_be:tnt_true" }
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom": { "model": "valoegheses_be:slab_zoesteria_ghost" },
+        "half=top": { "model": "valoegheses_be:slab_zoesteria_ghost_upper" }
+    }
+}

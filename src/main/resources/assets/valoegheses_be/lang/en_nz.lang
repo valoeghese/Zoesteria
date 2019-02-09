@@ -1,0 +1,5 @@
+item.sulphurrock.name=Sulphur
+item.saltpeter.name=Saltpeter
+tile.ore_saltpeter.name=Saltpeter Ore
+tile.ore_sulphur.name=Sulphur Ore
+tile.tnt.name=Gunpowder Explosive

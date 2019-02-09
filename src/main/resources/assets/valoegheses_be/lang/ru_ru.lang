@@ -1,0 +1,22 @@
+//========================================================
+//               A BIG THANK YOU TO
+//                    KELLIXON
+//             FOR CREATING THIS LANG FILE
+//========================================================
+item.ingot_vanadium.name=Ванадиевый слиток
+item.nugget_vanadium.name=Ванадиевый самородок
+item.sulphurrock.name=Сера
+item.saltpeter.name=Селитра
+tile.ore_vanadium.name=Ванадиевая руда
+tile.ore_saltpeter.name=Селитровая руда
+tile.ore_sulphur.name=Серная руда
+tile.vanadium_block.name=Ванадиевый блок
+tile.tnt.name=Взрывчатый порох
+item.chain_vanadium.name=Ванадиевая цепь
+tile.soil_dry.name=Мертвая почва
+tile.soil_wet.name=Влажная почва
+tile.sapling_oasis_palm.name=Саженец пальмы оазиса
+tile.leaves_oasis_palm.name=Листья пальмы оазиса
+
+//special
+item.armour_chestplate_vanadium.name=Ванадиевый кольчужный нагрудник

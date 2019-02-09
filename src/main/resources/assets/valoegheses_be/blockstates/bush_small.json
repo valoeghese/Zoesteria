@@ -1,0 +1,8 @@
+{
+    "variants":
+    {
+        "variant=standard": { "model": "valoegheses_be:bush0" },
+        "variant=berry": { "model": "valoegheses_be:bush1" },
+        "variant=coniferous": { "model": "valoegheses_be:bush2" }
+    }
+}
