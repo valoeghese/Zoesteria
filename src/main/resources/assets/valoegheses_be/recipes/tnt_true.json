@@ -1,0 +1,37 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        " S ",
+        "WGW",
+        "WNW"
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "minecraft:string"
+        },
+        "W":
+        {
+            "type": "forge:ore_dict",
+            "ore": "plankWood"
+        },
+        "N":
+        {
+            "item": "valoegheses_be:bottle_trinitrotoluene"
+        },
+        "G":
+        {
+            "item": "minecraft:gunpowder"
+        }
+    },
+    
+    "result":
+    {
+        "item": "valoegheses_be:tnt_true",
+        "count": 1
+    }
+}

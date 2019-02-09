@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "C C",
+        "CIC",
+        "CCC"
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "valoegheses_be:ingot_vanadium"
+        },
+        "C":
+        {
+            "item": "valoegheses_be:chain_vanadium"
+        }
+    },
+    
+    "result":
+    {
+        "item": "valoegheses_be:armour_chestplate_vanadium",
+        "count": 1
+    }
+}

@@ -1,0 +1,22 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+
+    "ingredients": 
+    [
+
+    {
+      "item": "valoegheses_be:leaves_pohutukawa"
+    },
+
+    {
+      "item": "valoegheses_be:flower_pohutukawa"
+    }
+    
+    ],
+
+    "result": 
+    {
+        "item": "valoegheses_be:leaves_pohutukawa_flower",
+        "count": 1
+    }
+}

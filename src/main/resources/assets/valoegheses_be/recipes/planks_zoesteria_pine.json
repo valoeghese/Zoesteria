@@ -1,0 +1,18 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+
+    "ingredients": 
+    [
+
+    {
+      "item": "valoegheses_be:log_zoesteria_pine"
+    }
+    
+    ],
+
+    "result": 
+    {
+        "item": "valoegheses_be:planks_zoesteria_pine",
+        "count": 4
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        " NI",
+        "IN "
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "valoegheses_be:ingot_vanadium"
+        },
+        "N":
+        {
+            "item": "valoegheses_be:nugget_vanadium"
+        }
+    },
+    
+    "result":
+    {
+        "item": "valoegheses_be:chain_vanadium",
+        "count": 2
+    }
+}

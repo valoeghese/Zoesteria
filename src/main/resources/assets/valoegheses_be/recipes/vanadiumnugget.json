@@ -1,0 +1,18 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+
+    "ingredients": 
+    [
+
+    {
+      "item": "valoegheses_be:ingot_vanadium"
+    }
+    
+    ],
+
+    "result": 
+    {
+        "item": "valoegheses_be:nugget_vanadium",
+        "count": 9
+    }
+}

@@ -1,0 +1,19 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+
+    "ingredients": 
+    [
+
+    {
+      "item": "minecraft:coal",
+      "data": 0
+    }
+    
+    ],
+
+    "result": 
+    {
+        "item": "valoegheses_be:filtered_coal",
+        "count": 1
+    }
+}

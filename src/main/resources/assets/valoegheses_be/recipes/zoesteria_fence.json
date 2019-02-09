@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "RSR",
+        "RSR"
+    ],
+    
+    "key":
+    {
+        "R":
+        {
+            "type": "forge:ore_dict",
+            "ore": "zoesteria1Plank"
+        },
+        "S":
+        {
+            "item": "minecraft:stick"
+        }
+    },
+    
+    "result":
+    {
+        "item": "minecraft:fence",
+        "count": 1
+    }
+}

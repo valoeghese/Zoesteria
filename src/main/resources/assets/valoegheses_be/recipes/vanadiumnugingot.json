@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "RRR",
+        "RRR",
+        "RRR"
+    ],
+    
+    "key":
+    {
+        "R":
+        {
+            "item": "valoegheses_be:nugget_vanadium"
+        }
+    },
+    
+    "result":
+    {
+        "item": "valoegheses_be:ingot_vanadium",
+        "count": 1
+    }
+}

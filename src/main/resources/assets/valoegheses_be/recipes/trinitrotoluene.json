@@ -1,0 +1,21 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+
+    "ingredients": 
+    [
+
+    {
+      "item": "valoegheses_be:acid_nitric"
+    },
+
+    {
+      "item": "valoegheses_be:toluene"
+    }
+    
+    ],
+
+    "result": 
+    {
+        "item": "valoegheses_be:bottle_trinitrotoluene"
+    }
+}
