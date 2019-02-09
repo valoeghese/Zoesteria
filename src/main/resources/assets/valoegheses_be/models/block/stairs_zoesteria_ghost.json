@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "valoegheses_be:blocks/planks_zoesteria_ghost",
+        "top": "valoegheses_be:blocks/planks_zoesteria_ghost",
+        "side": "valoegheses_be:blocks/planks_zoesteria_ghost"
+    }
+}

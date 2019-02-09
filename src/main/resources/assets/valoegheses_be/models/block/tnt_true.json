@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "down": "valoegheses_be:blocks/tnt_true_bottom",
+        "up": "valoegheses_be:blocks/tnt_true_top",
+        "north": "valoegheses_be:blocks/tnt_true_side",
+        "east": "valoegheses_be:blocks/tnt_true_side",
+        "south": "valoegheses_be:blocks/tnt_true_side",
+        "west": "valoegheses_be:blocks/tnt_true_side",
+        "particle": "valoegheses_be:blocks/tnt_true_top"
+    }
+}

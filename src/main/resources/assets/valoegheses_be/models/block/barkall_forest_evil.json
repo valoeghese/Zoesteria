@@ -1,0 +1,6 @@
+{
+   "parent": "block/cube_all",
+   "textures": {
+       "all": "valoegheses_be:blocks/log_forest_evil_side"
+   }
+}

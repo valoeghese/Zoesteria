@@ -1,0 +1,13 @@
+{
+    "parent": "block/cube",
+    "textures":
+    {
+        "up": "valoegheses_be:blocks/brushland_grass_top",
+        "north": "valoegheses_be:blocks/brushland_grass_side",
+        "east": "valoegheses_be:blocks/brushland_grass_side",
+        "south": "valoegheses_be:blocks/brushland_grass_side",
+        "west": "valoegheses_be:blocks/brushland_grass_side",
+        "down": "valoegheses_be:blocks/soil_dry",
+        "particle": "valoegheses_be:blocks/brushland_grass_top"
+    }
+}

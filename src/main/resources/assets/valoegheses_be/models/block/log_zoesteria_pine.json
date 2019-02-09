@@ -1,0 +1,9 @@
+{
+    "parent": "block/cube_column",
+    "textures":
+    {
+        "end": "valoegheses_be:blocks/log_zoesteria_pine_side",
+        "side": "valoegheses_be:blocks/log_zoesteria_pine"
+    }
+
+}
