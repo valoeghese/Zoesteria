@@ -14,10 +14,13 @@ import net.minecraft.block.BlockOldLog;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeBeach;
+import net.minecraft.world.biome.BiomeJungle;
 import net.minecraft.world.biome.BiomeOcean;
+import net.minecraft.world.biome.BiomePlains;
 import net.minecraft.world.biome.BiomeRiver;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
@@ -26,9 +29,10 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import valoeghese.valoeghesesbe.Main;
-import valoeghese.valoeghesesbe.blocks.BlockSmallBush;
 import valoeghese.valoeghesesbe.config.ConfigHandler;
+import valoeghese.valoeghesesbe.functional.tree.BlockLeavesPeach;
 import valoeghese.valoeghesesbe.util.MCWorld;
+import valoeghese.valoeghesesbe.util.OpenSimplexNoise;
 import valoeghese.valoeghesesbe.util.handlers.RegistryHandler;
 import valoeghese.valoeghesesbe.world.biomes.BiomeOakHighVillage;
 import valoeghese.valoeghesesbe.world.biomes.BiomeOakWHills;
@@ -40,8 +44,11 @@ import valoeghese.valoeghesesbe.world.gen.WorldGenFallenLog;
 import valoeghese.valoeghesesbe.world.structures.StructureBase;
 import valoeghese.valoeghesesbe.world.trees.WorldGenModdedShrub;
 import valoeghese.valoeghesesbe.world.trees.WorldGenOceanPalm;
+import valoeghese.valoeghesesbe.world.trees.fruittree.WorldGenPeach;
+import valoeghese.valoeghesesbe.world.trees.fruittree.WorldGenPlum;
 import valoeghese.valoeghesesbe.world.trees.newzealand.WorldGenPohutukawa1;
 import valoeghese.valoeghesesbe.world.trees.newzealand.WorldGenPohutukawa2;
+import valoeghese.valoeghesesbe.world.trees.oasispalm.WorldGenOasisPalm2;
 
 public class ModStructures implements IWorldGenerator
 {
@@ -137,9 +144,13 @@ public class ModStructures implements IWorldGenerator
 	private final WorldGenerator POHUTUKAWA_LARGE = new WorldGenPohutukawa2(false);
 	private final WorldGenerator OCEAN_PALM = new WorldGenOceanPalm(false, 4);
 	
-	private final WorldGenerator BUSH_0 = new WorldGenModdedShrub(ModBlocks.SMALL_BUSH.getDefaultState().withProperty(BlockSmallBush.VARIANT, BlockSmallBush.EnumBushType.STANDARD));
-	private final WorldGenerator BUSH_1 = new WorldGenModdedShrub(ModBlocks.SMALL_BUSH.getDefaultState().withProperty(BlockSmallBush.VARIANT, BlockSmallBush.EnumBushType.BERRY));
-	private final WorldGenerator BUSH_2 = new WorldGenModdedShrub(ModBlocks.SMALL_BUSH.getDefaultState().withProperty(BlockSmallBush.VARIANT, BlockSmallBush.EnumBushType.CONIFEROUS));
+	private final WorldGenerator OAK_CARPET = new WorldGenModdedShrub(ModBlocks.LEAFCARPET_OAK.getDefaultState());
+	private final WorldGenerator SPRUCE_CARPET = new WorldGenModdedShrub(ModBlocks.LEAFCARPET_SPRUCE.getDefaultState());
+	
+	private final WorldGenerator QUEEN_PALM = new WorldGenOasisPalm2(false);
+	
+	private final WorldGenerator PEACH = new WorldGenPeach(BlockLeavesPeach.EnumGenotype.PP, false);
+	private final WorldGenerator PLUM = new WorldGenPlum(false);
 	
 	public enum EnumBiomeType
 	{
@@ -151,7 +162,10 @@ public class ModStructures implements IWorldGenerator
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
-
+		double chunknoise = new OpenSimplexNoise(world.getSeed()).eval(chunkX * 0.2D, chunkZ * 0.2D);
+		
+		boolean grove = (new OpenSimplexNoise(world.getSeed()).eval(chunkX * 0.37D, chunkZ * 0.37D)) > 0.59D;
+		
 		if (Boolean.parseBoolean(structureWeightsTrue.get("MasterGenStructure")))
 		{
 			switch(world.provider.getDimension())
@@ -200,6 +214,20 @@ public class ModStructures implements IWorldGenerator
 			generateTree(FALLEN_LOG_0, world, random, chunkX, chunkZ, 0.4D, -1, 0, BiomeOakWoodsBase.class, BiomeOakWHills.class, BiomeOakHighVillage.class);
 			generateTree(FALLEN_LOG_1, world, random, chunkX, chunkZ, 0.25D, -1, 0, BiomeWoodsBase.class);
 			
+			generateTree(QUEEN_PALM, world, random, chunkX, chunkZ, 0.2D, 50, 85, BiomeJungle.class);
+			
+			//Add fruit tree groves
+			if (grove) generateTree(PEACH, world, random, chunkX, chunkZ, 3.5D, -1, 0, BiomePlains.class);
+			if (grove) generateTree(PLUM, world, random, chunkX, chunkZ, 3.5D, 63, 85, BiomeOakWoodsBase.class, BiomeOakWHills.class);
+			
+			//Carpet
+			double carpetval = 1.3 + (2.0 * chunknoise);
+			if (carpetval < 0.4)
+				carpetval = 0.4;
+			
+			generateTree(OAK_CARPET, world, random, chunkX, chunkZ, carpetval, -1, 0, BiomeOakWoodsBase.class, BiomeOakWHills.class, BiomeOakHighVillage.class);
+			generateTree(SPRUCE_CARPET, world, random, chunkX, chunkZ, carpetval, -1, 0, BiomeWoodsBase.class);
+			
 			for (BushGen bg : Main.bushes)
 			{
 				bg.load();
@@ -223,10 +251,11 @@ public class ModStructures implements IWorldGenerator
 	
 	private void generateTree(WorldGenerator generator, World world, Random rand, int chunkX, int chunkZ, double chancesToSpawn, int minHeight, int maxHeight, Class<?>...classes)
 	{
-		if (chancesToSpawn < 1)
+		double flooredchances = MathHelper.floor(chancesToSpawn);
+		if (chancesToSpawn != flooredchances)
 		{
-			if (rand.nextDouble() < chancesToSpawn) chancesToSpawn = 1;
-			else chancesToSpawn = 0;
+			if (rand.nextDouble() < (chancesToSpawn - flooredchances)) chancesToSpawn = flooredchances + 1;
+			else chancesToSpawn = flooredchances;
 		}
 		
 		ArrayList<Class<?>> classesList = new ArrayList<Class<?>>(Arrays.asList(classes));
@@ -244,10 +273,11 @@ public class ModStructures implements IWorldGenerator
 	}
 	private void generateTree(WorldGenerator generator, World world, Random rand, int chunkX, int chunkZ, double chancesToSpawn, int minHeight, int maxHeight, Set<Class> classes)
 	{
-		if (chancesToSpawn < 1)
+		double flooredchances = MathHelper.floor(chancesToSpawn);
+		if (chancesToSpawn != flooredchances)
 		{
-			if (rand.nextDouble() < chancesToSpawn) chancesToSpawn = 1;
-			else chancesToSpawn = 0;
+			if (rand.nextDouble() < (chancesToSpawn - flooredchances)) chancesToSpawn = flooredchances + 1;
+			else chancesToSpawn = flooredchances;
 		}
 		
 		int dHeight = maxHeight - minHeight;

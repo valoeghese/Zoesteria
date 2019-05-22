@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "R R",
+        "RRR"
+    ],
+    
+    "key":
+    {
+        "R":
+        {
+            "item": "valoegheses_be:planks_zoesteria_peach"
+        }
+    },
+    
+    "result":
+    {
+        "item": "minecraft:jungle_boat",
+        "count": 1
+    }
+}

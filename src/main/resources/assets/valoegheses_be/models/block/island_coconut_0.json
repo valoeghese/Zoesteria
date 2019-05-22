@@ -1,0 +1,22 @@
+{
+    "parent": "block/block",
+    "credit": "mAdE wItH blOCKbEnch. Yes. I'm too lazy to program it myself",
+	"elements": [
+		{
+			"from": [7, 12, 7],
+			"to": [11, 16, 11],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 4], "texture": "#all"},
+				"east": {"uv": [0, 0, 4, 4], "texture": "#all"},
+				"south": {"uv": [0, 0, 4, 4], "texture": "#all"},
+				"west": {"uv": [0, 0, 4, 4], "texture": "#all"},
+				"up": {"uv": [0, 0, 4, 4], "texture": "#all"},
+				"down": {"uv": [0, 0, 4, 4], "texture": "#all"}
+			}
+		}
+	],
+	"textures":
+	{
+	    "all": "valoegheses_be:blocks/island_coconut_block_0"
+	}
+}

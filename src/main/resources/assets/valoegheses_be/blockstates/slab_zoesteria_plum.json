@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom": { "model": "valoegheses_be:slab_zoesteria_plum" },
+        "half=top": { "model": "valoegheses_be:slab_zoesteria_plum_upper" }
+    }
+}

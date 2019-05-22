@@ -35,6 +35,12 @@ public class BiomeMire extends Biome
 	}
 	
 	@Override
+	public int getSkyColorByTemp(float temp)
+	{
+		return 0xacd0e0;
+	}
+	
+	@Override
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	{
 		return MIRE_FEATURE;

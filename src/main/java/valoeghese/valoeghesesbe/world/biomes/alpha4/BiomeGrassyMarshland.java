@@ -34,6 +34,11 @@ public class BiomeGrassyMarshland extends Biome
 		this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 1, 1, 1));
 	}
 	
+	@Override
+	public int getSkyColorByTemp(float temperature)
+	{
+		return 0x94e0d2;
+	}
 	protected boolean treatAsAir(IBlockState state)
 	{
 		if (state.getMaterial() == Material.AIR || state.getMaterial() == Material.WATER) return true;
@@ -43,7 +48,8 @@ public class BiomeGrassyMarshland extends Biome
 	@Override
 	public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer primerIn, int x, int z, double noiseVal)
 	{
-
+		boolean addBlock = rand.nextInt(2) == 0;
+		
 		if (noiseVal > 2)
 		{
 			if (noiseVal > 3.6D)
@@ -57,8 +63,6 @@ public class BiomeGrassyMarshland extends Biome
 			this.topBlock = Blocks.GRASS.getDefaultState();
 			this.fillerBlock = Blocks.DIRT.getDefaultState();
 		}
-		
-		double d0 = GRASS_COLOR_NOISE.getValue((double)x * 0.25D, (double)z * 0.25D);
 
 		int x1 = x & 15;
         int z1 = z & 15;
@@ -68,7 +72,7 @@ public class BiomeGrassyMarshland extends Biome
         int l = -1;
         boolean flag1 = false;
         int i1 = 0;
-
+        
         for (int j1 = 255; j1 >= 0; --j1)
         {
         	
@@ -93,14 +97,19 @@ public class BiomeGrassyMarshland extends Biome
         	}
         	else if (this.treatAsAir(iblockstate1))
         	{
+        		
         		if (j1 < 62 && j1 > 43)
         		{
-        			primerIn.setBlockState(x1, j1, z1, this.fillerBlock);
-        		} else if (j1 == 62)
-        		{
-        			if (rand.nextInt(2) == 0) primerIn.setBlockState(x1, j1, z1, this.topBlock);
+        			if (addBlock) primerIn.setBlockState(x1, j1, z1, this.fillerBlock);
         			else primerIn.setBlockState(x1, j1, z1, Blocks.WATER.getDefaultState());
-        		} else {
+        		}
+        		else if (j1 == 62)
+        		{
+        			if (addBlock) primerIn.setBlockState(x1, j1, z1, this.topBlock);
+        			else primerIn.setBlockState(x1, j1, z1, Blocks.WATER.getDefaultState());
+        		}
+        		else
+        		{
         			primerIn.setBlockState(x1, j1, z1, Blocks.AIR.getDefaultState());
         		}
         	}

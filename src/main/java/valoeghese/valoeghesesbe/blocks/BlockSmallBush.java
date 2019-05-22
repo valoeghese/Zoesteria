@@ -9,6 +9,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -38,10 +39,11 @@ public class BlockSmallBush extends BlockBush implements IShearable, IHasModel
 		this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, BlockSmallBush.EnumBushType.STANDARD));
 		
 		this.setHardness(0.2F);
-		//this.setCreativeTab(Main.tabWorld);
+		this.setCreativeTab(Main.tabWorld);
 		this.setSoundType(SoundType.PLANT);
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+		
 	}
 	
 	@Override
@@ -87,7 +89,7 @@ public class BlockSmallBush extends BlockBush implements IShearable, IHasModel
     {
     	if (state == this.getDefaultState().withProperty(VARIANT, EnumBushType.BERRY))
     	{
-    		return rand.nextInt(3) == 0 ? ModItems.BERRY : Items.STICK;
+    		return rand.nextInt(5) >= 2 ? ModItems.BERRY : Items.STICK;
     	}
     	else
     	{
@@ -155,6 +157,24 @@ public class BlockSmallBush extends BlockBush implements IShearable, IHasModel
         return ((BlockSmallBush.EnumBushType)state.getValue(VARIANT)).getMetadata();
     }
 	
+	/**
+     * Called by ItemBlocks after a block is set in the world, to allow post-place logic
+     */
+	@Override
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
+    {
+		if (placer.isDead) return;
+		
+		if (stack.getMetadata() == 2)
+		{
+			worldIn.setBlockState(pos, this.getDefaultState().withProperty(VARIANT, EnumBushType.CONIFEROUS), 2);
+		}
+		else if (stack.getMetadata() == 1)
+		{
+			worldIn.setBlockState(pos, this.getDefaultState().withProperty(VARIANT, EnumBushType.BERRY), 2);
+		}
+    }
+	
 	public static enum EnumBushType implements IStringSerializable
 	{
 		STANDARD(0, "standard"),
@@ -207,7 +227,7 @@ public class BlockSmallBush extends BlockBush implements IShearable, IHasModel
 		{
 			return this.unlocalizedName;
 		}
-
+		
 		static
 		{
 			for (BlockSmallBush.EnumBushType blocksmallbush$enumbushtype : values())
@@ -233,7 +253,8 @@ public class BlockSmallBush extends BlockBush implements IShearable, IHasModel
 	public void registerModels()
 	{
 		Main.proxy.registerModel(Item.getItemFromBlock(this), 0);
+		Main.proxy.registerModelWithCustomResourceLocation(Item.getItemFromBlock(this), "valoegheses_be:bush_small_1", 1);
+		Main.proxy.registerModelWithCustomResourceLocation(Item.getItemFromBlock(this), "valoegheses_be:bush_small_2", 2);
 	}
 
 }
-

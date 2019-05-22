@@ -5,8 +5,6 @@ import java.util.Random;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockNewLog;
 import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockVine;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -132,11 +130,11 @@ public class WorldGenPohutukawa1 extends WorldGenAbstractTree
 		switch (rand.nextInt(4))
 		{
 		case 0:
-			return ModBlocks.LEAVES_POHUTUKAWA.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+			return ModBlocks.LEAVES_POHUTUKAWA.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(true));
 		case 1:
-			return ModBlocks.LEAVES_POHUTUKAWA_BUD.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+			return ModBlocks.LEAVES_POHUTUKAWA_BUD.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(true));
 		default:
-			return ModBlocks.LEAVES_POHUTUKAWA_FLOWER.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+			return ModBlocks.LEAVES_POHUTUKAWA_FLOWER.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(true));
 		}
 	}
 	
@@ -146,11 +144,11 @@ public class WorldGenPohutukawa1 extends WorldGenAbstractTree
 		{
 		case 0:
 		case 1:
-			return ModBlocks.LEAVES_POHUTUKAWA_FLOWER.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+			return ModBlocks.LEAVES_POHUTUKAWA_FLOWER.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(true));
 		case 2:
-			return ModBlocks.LEAVES_POHUTUKAWA.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+			return ModBlocks.LEAVES_POHUTUKAWA.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(true));
 		default:
-			return ModBlocks.LEAVES_POHUTUKAWA_BUD.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+			return ModBlocks.LEAVES_POHUTUKAWA_BUD.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(true));
 		}
 	}
 	

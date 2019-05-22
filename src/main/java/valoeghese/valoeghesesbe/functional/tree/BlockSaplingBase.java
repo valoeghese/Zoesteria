@@ -25,9 +25,11 @@ import valoeghese.valoeghesesbe.init.ModBlocks;
 import valoeghese.valoeghesesbe.init.ModItems;
 import valoeghese.valoeghesesbe.util.IHasModel;
 import valoeghese.valoeghesesbe.world.trees.WorldGenBluffPine;
+import valoeghese.valoeghesesbe.world.trees.WorldGenIslandPalm;
 import valoeghese.valoeghesesbe.world.trees.WorldGenManukaTree;
 import valoeghese.valoeghesesbe.world.trees.WorldGenOceanPalm;
 import valoeghese.valoeghesesbe.world.trees.evil.WorldGenEvilTreeSapling;
+import valoeghese.valoeghesesbe.world.trees.fruittree.WorldGenPlum;
 import valoeghese.valoeghesesbe.world.trees.newzealand.WorldGenPohutukawa1;
 import valoeghese.valoeghesesbe.world.trees.oasispalm.WorldGenOasisPalm2;
 
@@ -37,11 +39,16 @@ public class BlockSaplingBase extends BlockBush implements IGrowable, IHasModel
     protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
     private String type;
     
-    public BlockSaplingBase(String name, String type) 
+    public BlockSaplingBase(String name, String type)
+    {
+    	this(name, type, true);
+    }
+    
+    public BlockSaplingBase(String name, String type, boolean setDefaultState) 
     {
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
+		if (setDefaultState) this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
 		this.setCreativeTab(Main.tabWorld);
 		
 		this.type = type;
@@ -82,7 +89,7 @@ public class BlockSaplingBase extends BlockBush implements IGrowable, IHasModel
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
         IBlockState soil = worldIn.getBlockState(pos.down());
-    	if(this.type == "oasis_palm" || this.type == "pohutukawa" || this.type == "ocean_palm")
+    	if(this.type == "oasis_palm" || this.type == "pohutukawa" || this.type == "ocean_palm" || this.type == "island_palm")
     	{
     		return super.canPlaceBlockAt(worldIn, pos) || soil.getBlock() == Blocks.SAND;
     	}
@@ -178,6 +185,11 @@ public class BlockSaplingBase extends BlockBush implements IGrowable, IHasModel
 		case "manuka":
 			gen = new WorldGenManukaTree(true);
 			break;
+		case "island_palm":
+			gen = new WorldGenIslandPalm(true, 6);
+			break;
+		case "plum":
+			gen = new WorldGenPlum(true);
 		}
 		
 		IBlockState iblockstate = Blocks.AIR.getDefaultState();
@@ -225,7 +237,7 @@ public class BlockSaplingBase extends BlockBush implements IGrowable, IHasModel
 	@Override
 	protected boolean canSustainBush(IBlockState state) 
 	{
-		if (this.type == "oasis_palm" || this.type == "pohutukawa" || this.type == "ocean_palm")
+		if (this.type == "oasis_palm" || this.type == "pohutukawa" || this.type == "ocean_palm" || this.type == "island_palm")
 		{
 			return state.getMaterial() == Material.GROUND || state.getMaterial() == Material.GRASS || state.getMaterial() == Material.PLANTS || state.getMaterial() == Material.SAND;
 		}

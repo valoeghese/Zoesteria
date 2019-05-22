@@ -88,14 +88,13 @@ public class ModWorldGeneration implements IWorldGenerator
 	{
 		if (Boolean.parseBoolean(allow.get("MasterGenVanadium"))) generateOre(ModBlocks.ORE_VANADIUM.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 4, 32, random.nextInt(5) + 2, 6);
 		if (Boolean.parseBoolean(allow.get("MasterGenSulphur"))) generateOre(ModBlocks.ORE_SULPHUR.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 30, 100, random.nextInt(12) + 5, Integer.parseInt(chances.get("Sulphur")));
-		if (Boolean.parseBoolean(allow.get("MasterGenSaltpeter"))) generateOre(ModBlocks.ORE_SALTPETER.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 50, 80, random.nextInt(6) + 3, Integer.parseInt(chances.get("Saltpeter")));
+		if (Boolean.parseBoolean(allow.get("MasterGenSaltpeter"))) generateOreWithGravel(ModBlocks.ORE_SALTPETER.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 50, 80, random.nextInt(6) + 6, Integer.parseInt(chances.get("Saltpeter")));
 	}
 	
 	private void generateOre(IBlockState ore, World world, Random rand, int x, int z, int minY, int maxY, int size, int chances)
 	{
 		
 		int deltaY = maxY - minY;
-		
 		for (int i = 0; i < chances; i++)
 		{
 			
@@ -105,7 +104,19 @@ public class ModWorldGeneration implements IWorldGenerator
 			generator.generate(world, rand, pos);
 			
 		}
-		
+	}
+	private void generateOreWithGravel(IBlockState ore, World world, Random rand, int x, int z, int minY, int maxY, int size, int chances)
+	{
+		int deltaY = maxY - minY;
+		for (int i = 0; i < chances; i++)
+		{
+			
+			BlockPos pos = new BlockPos(x + rand.nextInt(16), minY + rand.nextInt(deltaY), z + rand.nextInt(16));
+			
+			WorldGenMinable2 generator = new WorldGenMinable2(ore, Blocks.GRAVEL.getDefaultState(), size);
+			generator.generate(world, rand, pos);
+			
+		}
 	}
 
 }

@@ -29,4 +29,3 @@ public class VanadiumBlock extends BlockBase
 		setHarvestLevel("pickaxe", 1);
 	}
 }
-

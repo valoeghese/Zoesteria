@@ -1,3 +1,6 @@
 {
-   "parent": "valoegheses_be:blocks/bush0"
+    "parent":"item/generated",
+    "textures": {
+        "layer0": "valoegheses_be:blocks/bush_small_0"
+    }
 }

@@ -22,7 +22,7 @@ public class WorldGenBluffPine extends WorldGenAbstractTree
 {
 	
 	private static final IBlockState TRUNK = ModBlocks.LOG_PINE.getDefaultState();
-	private static final IBlockState LEAF = ModBlocks.LEAVES_BLUFF.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+	private static final IBlockState LEAF = ModBlocks.LEAVES_BLUFF.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(true));
 	
 	private static final int minHeight = 7;
 	public WorldGenBluffPine() { this(false); }

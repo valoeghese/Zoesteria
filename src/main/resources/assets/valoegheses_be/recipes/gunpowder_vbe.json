@@ -5,15 +5,18 @@
     [
 
     {
-      "item": "valoegheses_be:sulphurrock"
+        "type": "forge:ore_dict",
+        "ore": "dustSulfur"
     },
 
     {
-      "item": "valoegheses_be:saltpeter"
+        "type": "forge:ore_dict",
+        "ore": "dustSaltpeter"
     },
 
     {
-      "item": "valoegheses_be:saltpeter"
+        "type": "forge:ore_dict",
+        "ore": "dustSaltpeter"
     }
     
     ],

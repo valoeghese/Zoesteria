@@ -28,7 +28,7 @@ public class WorldGenManukaTree extends WorldGenAbstractTree
 {
 
 	private static final IBlockState TRUNK = Blocks.LOG2.getDefaultState().withProperty(BlockNewLog.VARIANT, BlockPlanks.EnumType.DARK_OAK);
-	private static final IBlockState LEAF = ModBlocks.LEAVES_MANUKA.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+	private static final IBlockState LEAF = ModBlocks.LEAVES_MANUKA.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(true));
 	
 	private static final int minBasicHeight = 3;
 	

@@ -1,0 +1,18 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+
+    "ingredients": 
+    [
+
+    {
+      "item": "valoegheses_be:planks_zoesteria_palm"
+    }
+    
+    ],
+
+    "result": 
+    {
+        "item": "minecraft:wooden_button",
+        "count": 1
+    }
+}

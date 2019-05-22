@@ -12,10 +12,10 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
-import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTaiga2;
+import valoeghese.valoeghesesbe.world.worldtype.ILakeRemover;
 
-public class BiomeAlpsNorthern extends Biome
+public class BiomeAlpsNorthern extends Biome implements ILakeRemover
 {
 	
 	private boolean alpsTrees;

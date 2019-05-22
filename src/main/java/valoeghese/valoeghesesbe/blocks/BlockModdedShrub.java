@@ -20,10 +20,20 @@ import valoeghese.valoeghesesbe.util.IHasModel;
 
 public class BlockModdedShrub extends BlockBush implements IHasModel
 {
-	protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
+	protected final AxisAlignedBB CUSTOM_AABB;
 	protected final boolean genOnSand;
 	
+	private static final AxisAlignedBB createAABB(double height)
+	{
+		return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, height, 0.8999999761581421D);
+	}
+	
 	public BlockModdedShrub(String name, boolean genOnSand) 
+    {
+		this(name, genOnSand, 0.800000011920929D);
+	}
+	
+	public BlockModdedShrub(String name, boolean genOnSand, double AABBheight) 
     {
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
@@ -32,6 +42,9 @@ public class BlockModdedShrub extends BlockBush implements IHasModel
 		
 		this.genOnSand = genOnSand;
 		this.setSoundType(SoundType.PLANT);
+		
+		this.CUSTOM_AABB = createAABB(AABBheight);
+		
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
@@ -39,7 +52,7 @@ public class BlockModdedShrub extends BlockBush implements IHasModel
 	@Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) 
     {
-    	return SAPLING_AABB;
+    	return CUSTOM_AABB;
     }
     
     @Override
@@ -90,4 +103,3 @@ public class BlockModdedShrub extends BlockBush implements IHasModel
 		Main.proxy.registerModel(Item.getItemFromBlock(this), 0);
 	}
 }
-

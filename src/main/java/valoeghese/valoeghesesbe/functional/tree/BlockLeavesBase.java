@@ -10,6 +10,9 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -31,7 +34,6 @@ public class BlockLeavesBase extends BlockLeaves implements IHasModel
 	
 	public BlockLeavesBase(String name, Block saplingIn) 
 	{
-		
 		super();
 		
 		this.sapling = saplingIn;
@@ -40,12 +42,33 @@ public class BlockLeavesBase extends BlockLeaves implements IHasModel
 		this.setSoundType(SoundType.PLANT);
 		this.setCreativeTab(Main.tabWorld);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(false)));
-				
+		
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 		
 	}
 	
+	@Override
+	public boolean isFlammable(IBlockAccess world, BlockPos pos, EnumFacing face)
+	{
+		return true;
+	}
+	
+	@Override
+	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+	{
+		return 200;
+	}
+	
+	/**
+     * Called by ItemBlocks just before a block is actually set in the world, to allow for adjustments to the
+     * IBlockstate
+     */
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+    {
+        return (placer instanceof EntityPlayer) ? this.getDefaultState().withProperty(DECAYABLE, Boolean.valueOf(false)).withProperty(CHECK_DECAY, Boolean.valueOf(false)) : this.getStateFromMeta(meta);
+    }
+    
 	@Override
 	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
 	{
@@ -58,6 +81,16 @@ public class BlockLeavesBase extends BlockLeaves implements IHasModel
 		return Item.getItemFromBlock(this.sapling);
 	}
 	
+	@Override
+	public IBlockState getStateFromMeta(int meta) 
+	{
+		IBlockState state = this.getDefaultState();
+		if((meta & 2) == 0) state = state.withProperty(DECAYABLE, Boolean.TRUE);
+		else state = state.withProperty(DECAYABLE, Boolean.FALSE);
+		if((meta & 4) == 0) state = state.withProperty(CHECK_DECAY, Boolean.TRUE);
+		else state = state.withProperty(CHECK_DECAY, Boolean.FALSE);
+		return state;
+	}
 	@Override
 	public int getMetaFromState(IBlockState state) 
 	{
@@ -103,7 +136,7 @@ public class BlockLeavesBase extends BlockLeaves implements IHasModel
 	@Override
 	public BlockRenderLayer getBlockLayer() 
 	{
-		return BlockRenderLayer.TRANSLUCENT;
+		return Blocks.LEAVES.getBlockLayer();
 	}	
 	
 	@Override

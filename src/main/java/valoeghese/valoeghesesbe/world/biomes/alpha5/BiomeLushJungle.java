@@ -48,6 +48,12 @@ public class BiomeLushJungle extends Biome
 	}
 	
 	@Override
+	public int getSkyColorByTemp(float temp)
+	{
+		return 0xe6f65a; //0x54db7a; //return 0xafe552; 
+	}
+	
+	@Override
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
     {
         if (rand.nextInt(7) == 0)

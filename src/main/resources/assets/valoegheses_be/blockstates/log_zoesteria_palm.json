@@ -1,0 +1,9 @@
+{
+    "variants":
+    {
+        "axis=y":  { "model": "valoegheses_be:log_zoesteria_palm" },
+        "axis=z":   { "model": "valoegheses_be:log_zoesteria_palm", "x": 90 },
+        "axis=x":   { "model": "valoegheses_be:log_zoesteria_palm", "x": 90, "y": 90 },
+        "axis=none": { "model": "valoegheses_be:barkall_zoesteria_palm" }
+    }
+}

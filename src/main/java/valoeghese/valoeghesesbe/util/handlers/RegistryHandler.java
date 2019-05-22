@@ -36,7 +36,7 @@ public class RegistryHandler
 {
 	private static class RegistryFiles
 	{
-		private static FileHandler configOre = new FileHandler("oreChances.cfg", "container Chances(int)", "{", "    Saltpeter = 2;", "    Sulphur = 8;", "}");
+		private static FileHandler configOre = new FileHandler("oreChances.cfg", "container Chances(int)", "{", "    Saltpeter = 3;", "    Sulphur = 8;", "}");
 		private static FileHandler configAllowOre = new FileHandler("allowOres.cfg", "container ConfigOre(boolean)", "{", "    MasterGenVanadium = true;", "    MasterGenSulphur = true;", "    MasterGenSaltpeter = true;", "}");
 		private static FileHandler configWoodlands = new FileHandler("biomeWoodlandWeights.cfg", "container BiomeWeights(int)", "{", "    VBEWoodlandSpruce = 2;", "    VBEWoodlandOakLow = 7;", "    VBEWoodlandOakHigh = 4;", "    VBEWoodlandOakHilly = 4;", "    VBEWoodlandOakHighInhabited = 2;", "    VBEWoodlandOakTall = 4;", "}");
 		private static FileHandler configAlps = new FileHandler("biomeAlpsWeights.cfg", "container BiomeWeights(int)", "{", "    VBEAlpsNorthern = 5;", "    VBEAlpsNorthernSnow = 3;", "    VBEAlpsNorthernSubalpine = 4;", "    VBEAlpsNorthernSubalpineSnow = 3;", "    VBEAlpsSouthern = 2;", "    VBEAlpsSouthernExtreme = 1;", "    VBEAlpsSouthernSubalpine = 2;", "}");

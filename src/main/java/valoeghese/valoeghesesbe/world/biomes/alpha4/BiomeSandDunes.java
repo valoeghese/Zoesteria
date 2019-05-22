@@ -3,7 +3,6 @@ package valoeghese.valoeghesesbe.world.biomes.alpha4;
 import java.util.Random;
 
 import net.minecraft.block.BlockSand;
-import net.minecraft.block.BlockSandStone;
 import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.init.Blocks;
@@ -15,8 +14,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import valoeghese.valoeghesesbe.init.ModBlocks;
 import valoeghese.valoeghesesbe.world.trees.oasispalm.WorldGenOasisPalm2;
+import valoeghese.valoeghesesbe.world.worldtype.ILakeRemover;
 
-public class BiomeSandDunes extends Biome
+public class BiomeSandDunes extends Biome implements ILakeRemover
 {
 	
 	private final boolean isOasis;

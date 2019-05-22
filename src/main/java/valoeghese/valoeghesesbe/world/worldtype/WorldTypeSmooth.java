@@ -13,7 +13,6 @@ public class WorldTypeSmooth extends WorldType
 	public WorldTypeSmooth(String typeNameIn)
 	{
 		super(typeNameIn);
-		
 	}
 
 	@Override

@@ -22,16 +22,24 @@ public class OreSulphur extends RockOreBase
 	}
 	
 	@Override
-	public int quantityDropped(Random rand)
+	public int quantityDroppedWithBonus(int fortune, Random rand)
 	{
-		int baseRand = rand.nextInt(3);
-		if (baseRand == 0)
+		int quantityOut = rand.nextInt(3);
+		if (quantityOut == 0)
 		{
-			baseRand = 1;
+			quantityOut = 1;
 		}
-		return baseRand;
 		
+		for (int i = 0; i < fortune; ++i)
+		{
+			if (rand.nextInt(3) == 0)
+			{
+				quantityOut += 1;
+			}
+		}
+		
+		if (quantityOut > 8) return 8;
+		return quantityOut;
 	}
 
 }
-

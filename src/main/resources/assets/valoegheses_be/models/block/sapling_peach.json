@@ -1,0 +1,7 @@
+{
+    "parent": "block/cross",
+    "textures":
+    {
+        "cross": "valoegheses_be:blocks/sapling_peach"
+    }
+}

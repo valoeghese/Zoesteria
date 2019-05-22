@@ -2,14 +2,11 @@ package valoeghese.valoeghesesbe.world.biomes.alpha2;
 
 import java.util.Random;
 
-import ibxm.Player;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockOldLog;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.init.Blocks;
@@ -27,8 +24,9 @@ import valoeghese.valoeghesesbe.init.ModBlocks;
 import valoeghese.valoeghesesbe.world.trees.WorldGenStrippedOak;
 import valoeghese.valoeghesesbe.world.trees.oasispalm.WorldGenOasisPalm;
 import valoeghese.valoeghesesbe.world.trees.oasispalm.WorldGenOasisPalm2;
+import valoeghese.valoeghesesbe.world.worldtype.ILakeRemover;
 
-public class BiomeWasteland extends Biome
+public class BiomeWasteland extends Biome implements ILakeRemover
 {
 	
 	private boolean isOasis;
@@ -38,6 +36,13 @@ public class BiomeWasteland extends Biome
 	private static final WorldGenAbstractTree OASIS = new WorldGenOasisPalm(false);
 	private static final WorldGenAbstractTree OASIS2 = new WorldGenOasisPalm2();
 	
+	@Override
+	public int getSkyColorByTemp(float temp)
+	{
+		if (isOasis) return super.getSkyColorByTemp(temp);
+		else if (isTrees) return 0x8baab5;
+		else return 0xeac072;
+	}
 	/*
 	 * a name b heightvariation c baseheight d treesperchunk
 	 */
@@ -114,11 +119,11 @@ public class BiomeWasteland extends Biome
 			
 		} else if(!this.isOasis) {
 			
-			if (this.isTrees && rand.nextInt(3) > 0)
+			if (this.isTrees && rand.nextInt(3) == 0)
 			{
-				return (WorldGenAbstractTree) new WorldGenStrippedOak(false);
-			} else {
 				return (WorldGenAbstractTree)SWAMP;
+			} else {
+				return (WorldGenAbstractTree) new WorldGenStrippedOak(false);
 			}
 				
 		}

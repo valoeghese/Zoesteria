@@ -1,0 +1,10 @@
+{
+    "variants": {
+        
+        "check_decay=true,decayable=true" : { "model" : "valoegheses_be:leaves_peach"},
+        "check_decay=true,decayable=false" : { "model" : "valoegheses_be:leaves_peach"},
+        "check_decay=false,decayable=true" : { "model" : "valoegheses_be:leaves_peach"},
+        "check_decay=false,decayable=false" : { "model" : "valoegheses_be:leaves_peach"}
+        
+    }
+}

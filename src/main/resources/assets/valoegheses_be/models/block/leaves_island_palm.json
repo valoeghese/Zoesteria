@@ -1,0 +1,7 @@
+{
+    "parent": "block/leaves",
+    "textures":
+    {
+        "all": "valoegheses_be:blocks/leaves_island_palm"
+    }
+}

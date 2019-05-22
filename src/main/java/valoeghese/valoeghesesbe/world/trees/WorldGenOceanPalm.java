@@ -19,20 +19,19 @@ import valoeghese.valoeghesesbe.init.ModBlocks;
 public class WorldGenOceanPalm extends WorldGenAbstractTree
 {
 	
-	public static final IBlockState TRUNK = Blocks.LOG.getDefaultState().withProperty(BlockOldLog.VARIANT, BlockPlanks.EnumType.JUNGLE);
-	public static final IBlockState LEAF = ModBlocks.LEAVES_OCEAN_PALM.getDefaultState().withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(false));
+	public final IBlockState TRUNK;
+	public static final IBlockState LEAF = ModBlocks.LEAVES_OCEAN_PALM.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(true));
 	
 	private final int minheight;
 	public WorldGenOceanPalm()
 	{
-		super(false);
-		
-		this.minheight = 6;
+		this(false, 6);
 	}
 	public WorldGenOceanPalm(boolean notify, int minHeight)
 	{
 		super(notify);
 		
+		this.TRUNK = ModBlocks.WOOD_LOOKUP.get("LOG_PALM_DARK").getDefaultState();
 		this.minheight = minHeight;
 	}
 

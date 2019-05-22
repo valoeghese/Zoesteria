@@ -1,0 +1,7 @@
+{
+    "parent": "valoegheses_be:block/leafcarpet",
+    "textures":
+    {
+        "all": "valoegheses_be:items/leaves_item_colouredoak"
+    }
+}

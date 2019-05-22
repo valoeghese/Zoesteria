@@ -51,7 +51,15 @@ public class ModItems
 	
 	public static final Item COAL2 = new ItemFuel("filtered_coal", 1600);
 	
-	public static final Item BYPRODUCTS = new ItemByproducts("products_coal");
+	public static final Item BYPRODUCTS = new ItemByproducts("products_coal")
+	{
+		@Override
+		@SideOnly(Side.CLIENT)
+	    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
+	    {
+			tooltip.add("Right click while holding to sift through the products");
+	    }
+	};
 	public static final Item FUEL_COKE = new ItemFuel("fuel_coke", 2000)
 	{
 		@Override
@@ -63,6 +71,11 @@ public class ModItems
 	};
 	
 	public static final Item BERRY = new ItemFoodBase("berry_bush", 1, 1, false);
+	public static final Item COCONUT_GREEN = new ItemFoodBase("island_coconut_0", 3, 3.4F, false);
+	public static final Item COCONUT_BROWN = new ItemFoodBase("island_coconut_1", 4, 1.4F, false);
+	public static final Item PEACH = new ItemFoodBase("fruit_peach", 4, 0.4F, false);
+	public static final Item NECTARINE = new ItemFoodBase("fruit_nectarine", 4, 0.3F, false);
+	public static final Item PLUM = new ItemFoodBase("fruit_plum", 3, 0.4F, false);
 	
 	//Chestplate
 	public static final Item VANADIUM_CHEST = new ArmourBase("armour_chestplate_vanadium", ModMaterials.getVanadium(), 1, EntityEquipmentSlot.CHEST);

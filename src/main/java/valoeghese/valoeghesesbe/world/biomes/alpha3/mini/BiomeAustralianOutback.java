@@ -2,24 +2,18 @@ package valoeghese.valoeghesesbe.world.biomes.alpha3.mini;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
-import net.minecraft.block.BlockStone;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.world.gen.ChunkGeneratorSettings;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenSand;
-import net.minecraft.world.gen.feature.WorldGenShrub;
 import valoeghese.valoeghesesbe.world.trees.WorldGenBrush;
+import valoeghese.valoeghesesbe.world.worldtype.ILakeRemover;
 
-public class BiomeAustralianOutback extends Biome
+public class BiomeAustralianOutback extends Biome implements ILakeRemover
 {
 	
 	public BiomeAustralianOutback(String name)
@@ -40,8 +34,15 @@ public class BiomeAustralianOutback extends Biome
 		this.decorator.cactiPerChunk = 2;
 		
 		this.spawnableCreatureList.clear();
+		this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityHorse.class, 1, 1, 2));
 		
 	}
+	
+	@Override
+	public float getSpawningChance()
+    {
+        return 0.001F;
+    }
 	
 	@Override
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand)

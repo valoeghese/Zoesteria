@@ -45,7 +45,19 @@ public class BlockLeavesPohutukawa extends BlockLeaves implements IHasModel
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
-
+	
+	@Override
+	public boolean isFlammable(IBlockAccess world, BlockPos pos, EnumFacing face)
+	{
+		return true;
+	}
+	
+	@Override
+	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+	{
+		return 200;
+	}
+	
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) 
 	{
@@ -58,6 +70,16 @@ public class BlockLeavesPohutukawa extends BlockLeaves implements IHasModel
 		return true;
 	}
 	
+	@Override
+	public IBlockState getStateFromMeta(int meta) 
+	{
+		IBlockState state = this.getDefaultState();
+		if((meta & 2) == 0) state = state.withProperty(DECAYABLE, Boolean.TRUE);
+		else state = state.withProperty(DECAYABLE, Boolean.FALSE);
+		if((meta & 4) == 0) state = state.withProperty(CHECK_DECAY, Boolean.TRUE);
+		else state = state.withProperty(CHECK_DECAY, Boolean.FALSE);
+		return state;
+	}
 	@Override
 	public int getMetaFromState(IBlockState state) 
 	{

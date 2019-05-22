@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "R R",
+        "RRR"
+    ],
+    
+    "key":
+    {
+        "R":
+        {
+            "item": "valoegheses_be:planks_zoesteria_palm"
+        }
+    },
+    
+    "result":
+    {
+        "item": "minecraft:birch_boat",
+        "count": 1
+    }
+}

@@ -19,4 +19,3 @@ public class RockOreBase extends BlockBase
 	}
 
 }
-

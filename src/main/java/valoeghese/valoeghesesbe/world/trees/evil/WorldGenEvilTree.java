@@ -2,17 +2,16 @@ package valoeghese.valoeghesesbe.world.trees.evil;
 
 import java.util.Random;
 
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.main.Main;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockPos.MutableBlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import valoeghese.valoeghesesbe.functional.tree.BlockLeavesEvil;
 import valoeghese.valoeghesesbe.init.ModBlocks;
 import valoeghese.valoeghesesbe.world.trees.enumTypes.EnumDirection;
 
@@ -27,7 +26,7 @@ public class WorldGenEvilTree extends WorldGenAbstractTree
 
 	private static final int minBasicHeight = 10;
 	
-	private static final IBlockState LEAVES = ModBlocks.LEAVES_EVIL.getDefaultState().withProperty(BlockLeavesEvil.CHECK_DECAY, Boolean.valueOf(false));
+	private static final IBlockState LEAVES = ModBlocks.LEAVES_EVIL.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(true));;
 	private static final IBlockState TRUNK = ModBlocks.LOG_EVIL.getDefaultState();
 	
 	@Override

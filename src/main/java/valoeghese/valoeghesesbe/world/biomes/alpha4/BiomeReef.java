@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import valoeghese.valoeghesesbe.world.trees.WorldGenIslandPalm;
 import valoeghese.valoeghesesbe.world.trees.WorldGenOceanPalm;
 import valoeghese.valoeghesesbe.world.trees.oasispalm.WorldGenOasisPalm2;
 
@@ -32,7 +33,7 @@ public class BiomeReef extends Biome
 	{
 		if (rand.nextInt(10) > 0)
 		{
-			return rand.nextInt(3) == 0 ? new WorldGenOasisPalm2() : new WorldGenOceanPalm();
+			return rand.nextInt(3) == 0 ? new WorldGenOceanPalm() : (rand.nextInt(10) == 0 ? new WorldGenOasisPalm2() : new WorldGenIslandPalm());
 		} else {
 			return new WorldGenTrees(false, 4 + rand.nextInt(7), Blocks.LOG.getDefaultState().withProperty(BlockOldLog.VARIANT, BlockPlanks.EnumType.JUNGLE), Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.VARIANT, BlockPlanks.EnumType.JUNGLE), true);
 		}

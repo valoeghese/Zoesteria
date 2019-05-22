@@ -21,7 +21,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import valoeghese.valoeghesesbe.Main;
 import valoeghese.valoeghesesbe.util.OpenSimplexNoise;
-import valoeghese.valoeghesesbe.world.gen.CustomDecorator;
 import valoeghese.valoeghesesbe.world.structures.WorldGenMoorlandLake;
 
 public class BiomeGrasslands extends Biome
@@ -88,8 +87,8 @@ public class BiomeGrasslands extends Biome
 			if (this.type == Variant.HIGHLANDS)
 			{
 
-				this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityHorse.class, 6, 2, 3));
-				this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityDonkey.class, 1, 1, 1));
+				this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityHorse.class, 9, 2, 3));
+				this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityDonkey.class, 2, 1, 1));
 
 				this.decorator.grassPerChunk = 10;
 				this.decorator.flowersPerChunk = 0;

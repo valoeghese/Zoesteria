@@ -177,11 +177,11 @@ public class WorldGenPohutukawa2 extends WorldGenAbstractTree
 		{
 		case 0:
 		case 1:
-			return ModBlocks.LEAVES_POHUTUKAWA_FLOWER.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+			return ModBlocks.LEAVES_POHUTUKAWA_FLOWER.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(true));
 		case 2:
-			return ModBlocks.LEAVES_POHUTUKAWA.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+			return ModBlocks.LEAVES_POHUTUKAWA.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(true));
 		default:
-			return ModBlocks.LEAVES_POHUTUKAWA_BUD.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+			return ModBlocks.LEAVES_POHUTUKAWA_BUD.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(true));
 		}
 	}
 	

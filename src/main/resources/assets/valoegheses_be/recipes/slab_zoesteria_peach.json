@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "RRR"
+    ],
+    
+    "key":
+    {
+        "R":
+        {
+            "item": "valoegheses_be:planks_zoesteria_peach"
+        }
+    },
+    
+    "result":
+    {
+        "item": "valoegheses_be:slab_zoesteria_peach",
+        "count": 6
+    }
+}

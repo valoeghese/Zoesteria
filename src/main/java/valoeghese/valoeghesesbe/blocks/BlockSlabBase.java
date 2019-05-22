@@ -174,4 +174,3 @@ public class BlockSlabBase extends BlockSlab implements IHasModel
 	}
 	
 }
-

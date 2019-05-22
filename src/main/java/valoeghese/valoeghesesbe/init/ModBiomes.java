@@ -1,7 +1,3 @@
-/*
-   Reminder to fix leaves visual & edit Manuka
-*/
-
 package valoeghese.valoeghesesbe.init;
 
 import java.io.FileReader;
@@ -38,6 +34,7 @@ import valoeghese.valoeghesesbe.world.biomes.alpha2.BiomeFlowerField;
 import valoeghese.valoeghesesbe.world.biomes.alpha2.BiomeWasteland;
 import valoeghese.valoeghesesbe.world.biomes.alpha3.BiomeOakTallWoodlands;
 import valoeghese.valoeghesesbe.world.biomes.alpha3.macro.BiomeGrasslands;
+import valoeghese.valoeghesesbe.world.biomes.alpha3.macro.BiomeGrasslandsLakeless;
 import valoeghese.valoeghesesbe.world.biomes.alpha3.macro.BiomeSouthernAlps;
 import valoeghese.valoeghesesbe.world.biomes.alpha3.mini.BiomeAustralianOutback;
 import valoeghese.valoeghesesbe.world.biomes.alpha3.mini.BiomeBluff;
@@ -61,10 +58,10 @@ public class ModBiomes
 	public static final ArrayList<Biome> BIOMES = new ArrayList<Biome>();
 	
 	public static Biome VBE_WOODLANDS = new BiomeWoodsBase("Low Spruce Woodlands", 0.06F, 0.43F, 8, 0.05F);
-	public static Biome VBE_WOODLANDS_OAK = new BiomeOakWoodsBase("Low Woodlands", 0.07F, 0.5F, 14, 0.05F);
+	public static Biome VBE_WOODLANDS_OAK = new BiomeOakWoodsBase("Low Woodlands", 0.07F, 0.5F, 9, 0.05F);
 	public static Biome VBE_WOODLANDS_OAK_HIGH = new BiomeOakWoodsBase("High Woodlands", 0.03F, 0.5F, 7, 0.6F, 1.3F);
-	public static Biome VBE_WOODLANDS_OAK_HILLY = new BiomeOakWHills("Woodlands Hills", 0.38F, 0.5F, 8, 0.07F, 0.45F);
-	public static Biome VBE_WOODLANDS_OAK_HIGH_INHABITED = new BiomeOakHighVillage("High Inhabited Woodlands", 0.025F, 0.48F, 7, 0.04F, 1.28F);
+	public static Biome VBE_WOODLANDS_OAK_HILLY = new BiomeOakWHills("Woodlands Hills", 0.38F, 0.5F, 6, 0.07F, 0.45F);
+	public static Biome VBE_WOODLANDS_OAK_HIGH_INHABITED = new BiomeOakHighVillage("High Inhabited Woodlands", 0.025F, 0.48F, 6, 0.04F, 1.28F);
 	public static Biome VBE_WOODLANDS_TALL = new BiomeOakTallWoodlands("Low Tall Woodlands", 0.07F, 0.5F, 14, 0.05F);
 	
 	public static Biome VBE_ALPS_NORTHERN_SNOWLESS = new BiomeAlpsSubalpine("Northern Alps", 0.24F, 3.2F, false);
@@ -82,7 +79,7 @@ public class ModBiomes
 	
 	public static Biome VBE_GRASS_LOWLANDS = new BiomeGrasslands(new BiomeProperties("Lowlands").setBaseBiome("GrasslandsBiome").setBaseHeight(0.15F).setHeightVariation(0.16F).setTemperature(0.62F).setRainfall(0.6F), BiomeGrasslands.Variant.LOWLANDS);
 	public static Biome VBE_GRASS_MOORLANDS = new BiomeGrasslands(new BiomeProperties("Moorlands").setBaseHeight(2.25F).setHeightVariation(0.16F).setTemperature(0.56F).setRainfall(0.6F), BiomeGrasslands.Variant.MOORLANDS);
-	public static Biome VBE_GRASS_HIGHLANDS = new BiomeGrasslands(new BiomeProperties("Highlands").setBaseBiome("GrasslandsBiome").setBaseHeight(2.25F).setHeightVariation(0.23F).setTemperature(0.64F).setRainfall(0.6F), BiomeGrasslands.Variant.HIGHLANDS);
+	public static Biome VBE_GRASS_HIGHLANDS = new BiomeGrasslandsLakeless(new BiomeProperties("Highlands").setBaseBiome("GrasslandsBiome").setBaseHeight(2.25F).setHeightVariation(0.23F).setTemperature(0.64F).setRainfall(0.6F), BiomeGrasslands.Variant.HIGHLANDS);
 	public static Biome VBE_GRASS_CHAPPARAL = new BiomeGrasslands(new BiomeProperties("Lowlands Chapparal").setBaseBiome("GrasslandsBiome").setBaseHeight(0.33F).setHeightVariation(0.45F).setTemperature(0.75F).setRainfall(0.34F), BiomeGrasslands.Variant.CHAPPARAL);
 	
 	public static Biome VBE_BLUFF = new BiomeBluff();
@@ -108,7 +105,7 @@ public class ModBiomes
 	public static Biome VBE_DUNES_OASIS = new BiomeSandDunes(new BiomeProperties("Sand Dunes Oasis").setRainfall(0.4F).setTemperature(2.0F).setBaseBiome("Sand Dunes").setBaseHeight(-0.06F).setHeightVariation(0.09F), false, true);
 	
 	public static Biome VBE_FEN = new BiomeGrassyFen("Grassy Fen", -0.18F, 0.13F);
-	public static Biome VBE_MARSH = new BiomeGrassyMarshland("Grassy Marshland", /*-0.06F*/ -0.5F, 0.00003F);
+	public static Biome VBE_MARSH = new BiomeGrassyMarshland("Grassy Marshland", /*-0.06F*/ -0.37F, 0.00003F);
 	
 	//oceans and islands
 	public static Biome VBE_REEF = new BiomeReef();
@@ -280,9 +277,9 @@ public class ModBiomes
 		initBiome(VBE_GRASS_LOWLANDS, "Lowlands", BiomeType.WARM, Integer.parseInt(grasslandsWeightsTrue.get("VBEGrassLowlands")), Type.LUSH, Type.PLAINS, Type.SPARSE);
 		if (Boolean.parseBoolean(biomesAllowTrue.get("MasterGenAlpha13")))
 		{
-			initBiome(VBE_GRASS_CHAPPARAL, "Lowlands Chapparal", BiomeType.WARM, Integer.parseInt(grasslandsWeightsTrue.get("VBEGrassChapparal")), Type.SAVANNA, Type.PLAINS, Type.SPARSE);
+			initBiome(VBE_GRASS_CHAPPARAL, "Lowlands Chapparal", BiomeType.WARM, Integer.parseInt(grasslandsWeightsTrue.get("VBEGrassChapparal")), true, Type.SAVANNA, Type.PLAINS, Type.SPARSE);
 		} else {
-			registerImpossibleBiome(VBE_GRASS_CHAPPARAL, "Lowlands Chapparal", BiomeType.WARM, Integer.parseInt(grasslandsWeightsTrue.get("VBEGrassChapparal")), Type.SAVANNA, Type.PLAINS, Type.SPARSE);
+			registerImpossibleBiome(VBE_GRASS_CHAPPARAL, "Lowlands Chapparal", BiomeType.WARM, Integer.parseInt(grasslandsWeightsTrue.get("VBEGrassChapparal")), true, Type.SAVANNA, Type.PLAINS, Type.SPARSE);
 		}
 		initBiome(VBE_GRASS_MOORLANDS, "Moorlands", BiomeType.WARM, Integer.parseInt(grasslandsWeightsTrue.get("VBEGrassMoorlands")), Type.LUSH, Type.PLAINS, Type.SPARSE, Type.SPOOKY);
 		initBiome(VBE_GRASS_HIGHLANDS, "Highlands", BiomeType.WARM, Integer.parseInt(grasslandsWeightsTrue.get("VBEGrassHighlands")), true, Type.LUSH, Type.PLAINS, Type.SPARSE, Type.MOUNTAIN);
@@ -357,7 +354,7 @@ public class ModBiomes
 			
 			initBiome(VBE_BRUSHLANDS, "Brushlands", BiomeType.WARM, Integer.parseInt(brushWeightsTrue.get("VBEBrushlands")), Type.DRY, Type.PLAINS);
 			initBiome(VBE_BRUSHLANDS_DENSE, "Dense Brushlands", BiomeType.WARM, Integer.parseInt(brushWeightsTrue.get("VBEBrushlandsDense")), Type.DRY, Type.PLAINS);
-			initBiome(VBE_BRUSHLANDS_DESERT, "Hot Brushlands", BiomeType.DESERT, Integer.parseInt(brushWeightsTrue.get("VBEBrushlandsDesert")), Type.DRY, Type.HOT, Type.PLAINS);
+			initBiome(VBE_BRUSHLANDS_DESERT, "Hot Brushlands", Main.isDDSSEdition ? BiomeType.WARM : BiomeType.DESERT, Integer.parseInt(brushWeightsTrue.get("VBEBrushlandsDesert")), Type.DRY, Type.HOT, Type.PLAINS);
 			initBiome(VBE_BRUSHLANDS_HILLS, "Brushlands Hills", BiomeType.WARM, Integer.parseInt(brushWeightsTrue.get("VBEBrushlandsHills")), Type.DRY, Type.PLAINS, Type.HILLS);
 			
 			initBiome(VBE_REEF_STONY, "Stony Reef", BiomeType.WARM, Integer.parseInt(m2WeightsTrue.get("VBEReefStony")), Type.OCEAN);
@@ -376,7 +373,7 @@ public class ModBiomes
 			
 			registerImpossibleBiome(VBE_BRUSHLANDS, "Brushlands", BiomeType.WARM, Integer.parseInt(brushWeightsTrue.get("VBEBrushlands")), Type.DRY, Type.PLAINS);
 			registerImpossibleBiome(VBE_BRUSHLANDS_DENSE, "Dense Brushlands", BiomeType.WARM, Integer.parseInt(brushWeightsTrue.get("VBEBrushlandsDense")), Type.DRY, Type.PLAINS);
-			registerImpossibleBiome(VBE_BRUSHLANDS_DESERT, "Hot Brushlands", BiomeType.DESERT, Integer.parseInt(brushWeightsTrue.get("VBEBrushlandsDesert")), Type.DRY, Type.HOT, Type.PLAINS);
+			registerImpossibleBiome(VBE_BRUSHLANDS_DESERT, "Hot Brushlands", Main.isDDSSEdition ? BiomeType.WARM : BiomeType.DESERT, Integer.parseInt(brushWeightsTrue.get("VBEBrushlandsDesert")), Type.DRY, Type.HOT, Type.PLAINS);
 			registerImpossibleBiome(VBE_BRUSHLANDS_HILLS, "Brushlands Hills", BiomeType.WARM, Integer.parseInt(brushWeightsTrue.get("VBEBrushlandsHills")), Type.DRY, Type.PLAINS, Type.HILLS);
 			
 			registerImpossibleBiome(VBE_REEF_STONY, "Stony Reef", BiomeType.WARM, Integer.parseInt(m2WeightsTrue.get("VBEReefStony")), Type.OCEAN);

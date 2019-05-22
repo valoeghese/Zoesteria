@@ -1,0 +1,22 @@
+{
+    "parent": "block/block",
+    "credit": "this one I made by editing the json of the other one lol",
+	"elements": [
+		{
+			"from": [5, 10, 5],
+			"to": [12, 16, 12],
+			"faces": {
+				"north": {"uv": [0, 0, 7, 6], "texture": "#all"},
+				"east": {"uv": [0, 0, 7, 6], "texture": "#all"},
+				"south": {"uv": [0, 0, 7, 6], "texture": "#all"},
+				"west": {"uv": [0, 0, 7, 6], "texture": "#all"},
+				"up": {"uv": [0, 0, 7, 7], "texture": "#all"},
+				"down": {"uv": [0, 0, 7, 7], "texture": "#all"}
+			}
+		}
+	],
+	"textures":
+	{
+	    "all": "valoegheses_be:blocks/island_coconut_block_1"
+	}
+}

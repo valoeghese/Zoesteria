@@ -10,8 +10,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import valoeghese.valoeghesesbe.init.ModBlocks;
 import valoeghese.valoeghesesbe.world.trees.WorldGenBrush;
+import valoeghese.valoeghesesbe.world.worldtype.ILakeRemover;
 
-public class BiomeBrushlands extends Biome
+public class BiomeBrushlands extends Biome implements ILakeRemover
 {
 	
 	public BiomeBrushlands(BiomeProperties properties, int tpc)

@@ -47,6 +47,18 @@ public class BlockLeavesEvil extends BlockLeaves implements IHasModel
 	}
 	
 	@Override
+	public boolean isFlammable(IBlockAccess world, BlockPos pos, EnumFacing face)
+	{
+		return true;
+	}
+	
+	@Override
+	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+	{
+		return 40;
+	}
+	
+	@Override
 	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
 	{
 		return true;
@@ -58,6 +70,16 @@ public class BlockLeavesEvil extends BlockLeaves implements IHasModel
 		return Item.getItemFromBlock(ModBlocks.SAPLING_EVIL);
 	}
 	
+	@Override
+	public IBlockState getStateFromMeta(int meta) 
+	{
+		IBlockState state = this.getDefaultState();
+		if((meta & 2) == 0) state = state.withProperty(DECAYABLE, Boolean.TRUE);
+		else state = state.withProperty(DECAYABLE, Boolean.FALSE);
+		if((meta & 4) == 0) state = state.withProperty(CHECK_DECAY, Boolean.TRUE);
+		else state = state.withProperty(CHECK_DECAY, Boolean.FALSE);
+		return state;
+	}
 	@Override
 	public int getMetaFromState(IBlockState state) 
 	{

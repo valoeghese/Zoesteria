@@ -1,0 +1,7 @@
+{
+    "variants":
+    {
+        "age=0": { "model": "valoegheses_be:island_coconut_0" },
+        "age=1": { "model": "valoegheses_be:island_coconut_1" }
+    }
+}

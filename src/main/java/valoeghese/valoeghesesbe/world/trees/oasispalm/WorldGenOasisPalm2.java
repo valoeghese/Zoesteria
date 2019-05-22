@@ -19,11 +19,11 @@ import net.minecraftforge.common.IPlantable;
 import valoeghese.valoeghesesbe.init.ModBlocks;
 import valoeghese.valoeghesesbe.world.trees.enumTypes.EnumDirection;
 
+//Will not generate in Oases
 public class WorldGenOasisPalm2 extends WorldGenAbstractTree
 {
-    private static final IBlockState TRUNK = Blocks.LOG.getDefaultState().withProperty(BlockOldLog.VARIANT, BlockPlanks.EnumType.JUNGLE);
-//    private static final IBlockState LEAF = Blocks.LEAVES.getDefaultState().withProperty(BlockOldLeaf.VARIANT, BlockPlanks.EnumType.JUNGLE).withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
-    private static final IBlockState LEAF = ModBlocks.LEAVES_PALM.getDefaultState();
+    private final IBlockState TRUNK;
+    private static final IBlockState LEAF = ModBlocks.LEAVES_PALM.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)).withProperty(BlockLeaves.DECAYABLE, Boolean.valueOf(true));
     
     private static final int minHeight = 7;
     
@@ -35,6 +35,8 @@ public class WorldGenOasisPalm2 extends WorldGenAbstractTree
     public WorldGenOasisPalm2(boolean notify)
     {
     	super(notify);
+    	
+    	TRUNK = ModBlocks.WOOD_LOOKUP.get("LOG_PALM").getDefaultState();
     }
     
     @Override
@@ -43,7 +45,7 @@ public class WorldGenOasisPalm2 extends WorldGenAbstractTree
     	
     	int height = minHeight + rand.nextInt(5);
     	boolean flag = true;
-    	EnumDirection direction = EnumDirection.getRandomEnumType(rand);
+    	EnumDirection direction = rand.nextInt(3) == 0 ? EnumDirection.getRandomEnumType(rand) : EnumDirection.VERTICAL;
     	
     	int x = pos.getX();
     	int y = pos.getY();
@@ -103,11 +105,6 @@ public class WorldGenOasisPalm2 extends WorldGenAbstractTree
     	return false;
     }
     
-    private void placeCocoa(World worldIn, int p_181652_2_, BlockPos pos, EnumFacing side)
-    {
-        this.setBlockAndNotifyAdequately(worldIn, pos, Blocks.COCOA.getDefaultState().withProperty(BlockCocoa.AGE, Integer.valueOf(p_181652_2_)).withProperty(BlockCocoa.FACING, side));
-    }
-    
     private void growPalmLeaves(World worldIn, IBlockState leavesState, int x, int y, int z, Random rand)
     {
     	for (int xAdd = -1; xAdd < 2; ++xAdd)
@@ -138,11 +135,6 @@ public class WorldGenOasisPalm2 extends WorldGenAbstractTree
     	}
     	
     	if (worldIn.getBlockState(new BlockPos(x, y-1, z)).getBlock() == Blocks.AIR) this.setBlockAndNotifyAdequately(worldIn, new BlockPos(x, y-1, z), TRUNK);
-    		
-    	for (EnumDirection compass : EnumDirection.getEnumDirectionals())
-    	{
-    		if (worldIn.getBlockState(new BlockPos(x + compass.getXOffset(), y-1, z + compass.getZOffset())).getBlock() == Blocks.AIR) this.placeCocoa(worldIn, rand.nextInt(3), new BlockPos(x + compass.getXOffset(), y-1, z + compass.getZOffset()), compass.getOpposite().getEnumFacing());	
-    	}
     }
     
     /*

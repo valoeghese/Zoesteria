@@ -1,0 +1,7 @@
+{
+    "parent": "valoegheses_be:block/leafcarpet",
+    "textures":
+    {
+        "all": "blocks/leaves_oak"
+    }
+}

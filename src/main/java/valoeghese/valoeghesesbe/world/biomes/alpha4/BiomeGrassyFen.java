@@ -37,6 +37,12 @@ public class BiomeGrassyFen extends Biome
 	}
 	
 	@Override
+	public int getSkyColorByTemp(float currentTemp)
+	{
+		return 0x95f0e8;
+	}
+	
+	@Override
 	public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer primerIn, int x, int z, double noiseVal)
 	{
 		

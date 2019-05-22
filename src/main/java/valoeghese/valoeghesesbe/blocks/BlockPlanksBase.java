@@ -18,5 +18,3 @@ public class BlockPlanksBase extends BlockBase
 		this.setHardness(2.0F);
 	}
 }
-
-

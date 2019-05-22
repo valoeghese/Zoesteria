@@ -15,7 +15,7 @@ import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import valoeghese.valoeghesesbe.functional.tree.BlockLeavesPalm;
+import valoeghese.valoeghesesbe.archived.BlockLeavesPalm;
 import valoeghese.valoeghesesbe.init.ModBlocks;
 import valoeghese.valoeghesesbe.world.biomes.biomeutil.IBiomeFog;
 import valoeghese.valoeghesesbe.world.trees.evil.WorldGenEvilTree;
@@ -69,7 +69,12 @@ public class BiomeGhostForest extends Biome implements IBiomeFog
 			}
 		}
 	}
-
+	
+	@Override
+	public int getSkyColorByTemp(float temp)
+	{
+		return 0xa1afac;
+	}
 	@Override
 	public int getFogStrength()
 	{

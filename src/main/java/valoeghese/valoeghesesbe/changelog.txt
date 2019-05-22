@@ -1,0 +1,38 @@
+Fixed item rendering and item placement for small bush
+Tooltips for island palm sapling and coal products
+Gunpowder Recipe now uses ore dictionary for saltpeter and sulphur
+Code for log-only woodtypes through the wood lookup
+Dark Palm Log (used on ocean palm)
+Alterations to code of Leaf Carpet
+Alteration to barkall jsons
+Coconut
+Peach trees <plains> (Genes for nectarine vs peach).
+Plum Trees <Low woodlands> <Woodlands Hills>
+Leaf carpet is see through on fancy graphics
+Increased default saltpeter chance
+Door recipes (oak door) as placeholder for custom plank doors.
+Villages can spawn in Chaparral biomes
+Less chance for Queen palm to lean over.
+Fortune affects quantity dropped of saltpeter and sulphur (maximum items dropped is 8)
+Many new textures courtesy of JaceWithTheRedVans
+Lake Remover
+(Metadata conversions in leaves)
+fixed recipe
+Decaying leaves
+Altered the sky colour of a few biomes
+Significantly less trees in Woodland Type biomes.
+Standard wasteland flats biome comes with stripped trees, rather than swamp trees
+Increased berries dropped from berry bushes
+Lake removal
+--------------------------------1.4.9-----------------------------------
+Leaf carpet with biome colours, models for item. Spawning of these in world based on noisemap
+Oasis palm renamed to queen palm. Cocoa removed from this tree.
+Wood registry system for easy wood addition
+Improved texture of gunpowder explosive (vanilla tnt)
+Altered some tree generation code (non int doubles greater than 0 work as well now)
+Removed standard bushes from low spruce woodlands
+Island Palm
+Palm Wood
+Removed unused recipe
+Changed Texture of Saltpeter to JaceWithTheRedVans' custom texture
+Altered Saltpeter ore spawn mechanics
