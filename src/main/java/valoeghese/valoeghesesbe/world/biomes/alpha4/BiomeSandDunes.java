@@ -13,7 +13,8 @@ import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import valoeghese.valoeghesesbe.init.ModBlocks;
-import valoeghese.valoeghesesbe.world.trees.oasispalm.WorldGenOasisPalm2;
+import valoeghese.valoeghesesbe.world.trees.WorldGenDatePalm;
+import valoeghese.valoeghesesbe.world.trees.queenpalm.WorldGenQueenPalm;
 import valoeghese.valoeghesesbe.world.worldtype.ILakeRemover;
 
 public class BiomeSandDunes extends Biome implements ILakeRemover
@@ -58,11 +59,11 @@ public class BiomeSandDunes extends Biome implements ILakeRemover
 	}
 	
 	@Override
-	public WorldGenAbstractTree getRandomTreeFeature(Random randIn)
+	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	{
 		if (this.isOasis)
 		{
-			return (WorldGenAbstractTree)new WorldGenOasisPalm2();
+			return (WorldGenAbstractTree)(rand.nextInt(100) == 0 ? new WorldGenQueenPalm() : new WorldGenDatePalm());
 		} else {
 			return new WorldGenShrub(Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState());
 		}
@@ -75,7 +76,7 @@ public class BiomeSandDunes extends Biome implements ILakeRemover
 		
 		if (this.isOasis)
 	    {
-			return 0x00A037;
+			return 0x21bc24;
 	    } else {
 	    	
 	    	return super.getGrassColorAtPos(pos);

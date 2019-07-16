@@ -41,6 +41,8 @@ public class CompatOreDictionary
 		OreDictionary.registerOre("treeSapling", ModBlocks.SAPLING_PEACH_PP);
 		OreDictionary.registerOre("treeLeaves", ModBlocks.LEAVES_PLUM);
 		OreDictionary.registerOre("treeSapling", ModBlocks.SAPLING_PLUM);
+		OreDictionary.registerOre("treeLeaves", ModBlocks.LEAVES_DATE_PALM);
+		OreDictionary.registerOre("treeSapling", ModBlocks.SAPLING_DATE_PALM);
 		
 		OreDictionary.registerOre("logWood", ModBlocks.LOG_EVIL);
 		OreDictionary.registerOre("logWood", ModBlocks.LOG_PINE);

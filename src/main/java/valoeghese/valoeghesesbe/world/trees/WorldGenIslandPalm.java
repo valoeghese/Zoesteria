@@ -92,7 +92,7 @@ public class WorldGenIslandPalm extends WorldGenAbstractTree
 				this.generateLeaves(worldIn, generateLeavesFrom);
 				this.addCoconutSpread(worldIn, generateLeavesFrom.down(), rand, 1);
 				BlockPos pos21;
-				for (int lHeight = 0; lHeight < height; ++lHeight)
+				for (int lHeight = 0; lHeight <= height; ++lHeight)
 				{
 					pos21 = new BlockPos(0,0,0); //Create BlockPos
 					pos21 = lHeight > 0 ? (lHeight > 2 ? pos.add(2*leaning0.getXOffset() + 2*leaning1.getXOffset(), lHeight, 2*leaning0.getZOffset() + 2*leaning1.getZOffset()) : pos.add(leaning0.getXOffset() + leaning1.getXOffset(), lHeight, leaning0.getZOffset() + leaning1.getZOffset())) : pos.up(lHeight);
@@ -116,16 +116,16 @@ public class WorldGenIslandPalm extends WorldGenAbstractTree
 		this.setLeafPoints(worldIn, pos.down(2), 2);
 		
 		this.setLeafPoints(worldIn, pos.down(), 1);
+		this.setLeafPoints(worldIn, pos.down(), 2);
 		this.setLeafSpread(worldIn, pos.down(), 2);
 		
+		this.setLeafPoints(worldIn, pos, 1);
 		this.setLeafSpread(worldIn, pos, 1);
 		
-		this.setLeaves(worldIn, pos.up());
 		this.setLeafPoints(worldIn, pos.up(), 1);
 		
 		this.setLeafPoints(worldIn, pos.up(2), 1);
-		
-		this.setLeafPoints(worldIn, pos.up(3), 2);
+		this.setLeafPoints(worldIn, pos.up(2), 2);
 	}
 	private void setLeaves(World worldIn, BlockPos pos)
 	{

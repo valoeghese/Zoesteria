@@ -21,6 +21,9 @@ tile.planks_zoesteria_pine.name=Pine Planks
 tile.slab_zoesteria_pine.name=Pine Slab
 tile.stairs_zoesteria_pine.name=Pine Stairs
 
+tile.sapling_date_palm.name=Date Palm Sapling
+tile.leaves_date_palm.name=Date Palm Leaves
+
 tile.leaves_ocean_palm.name=Ocean Palm Leaves
 tile.sapling_ocean_palm.name=Ocean Palm Sapling
 tile.planks_zoesteria_ghost.name=Ghost Tree Planks

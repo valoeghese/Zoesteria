@@ -12,21 +12,23 @@ public class ConfigHandler
 	
 	private Map<String, Map<String, String>> containers = new HashMap<String, Map<String, String>>();
 	
-	private final String s_curcn7_typename = "def_ConfigHandler_type";
+	private final String typename = "def_ConfigHandler_type";
 	
 	//Mode of parser.
-	private byte b_d_m03e;
+	private byte mode;
 	
 	public ConfigHandler(char[] data, boolean test)
 	{
 		//Container stuff. 1st index of each HashMap is the type, which will be called def_ConfigHandler_type.
-		String s_curn4m = new String();
-		String s_curv4r = new String();
-		String s_cur57r = new String();
+		String containerString = new String();
+		String dataString = new String();
+		//String currentString = new String();
 		
-		this.b_d_m03e = 0;
+		StringBuilder sb = new StringBuilder();
 		
-		Map<String, String> hs_curcn7 = new HashMap<String, String>();
+		this.mode = 0;
+		
+		Map<String, String> tempData = new HashMap<String, String>();
 		
 		//parse char data into containers. 4 is default container mode; 0 is default external mode.
 		for (char c : data)
@@ -38,29 +40,30 @@ public class ConfigHandler
 			case ' ':
 				
 				if (test) {
-					System.out.println("SPACE" + Byte.toString(this.b_d_m03e));
+					System.out.println("SPACE" + Byte.toString(this.mode));
 				}
-				switch(this.b_d_m03e)
+				switch(this.mode)
 				{
 				
 				//checking for container
 				case 0:
 					
-					if (s_cur57r.trim().equals("container"))
+					if (sb.toString().trim().equals("container"))
 					{
 						
-						s_curn4m = new String();
+						containerString = new String();
 						
-						this.b_d_m03e = 1;
+						this.mode = 1;
 						
 					} else {
 						
 						if (test) {
-							Console.WriteChars(s_cur57r);
+							Console.WriteChars(sb.toString());
 						}
 						
 					}
-					s_cur57r = new String();
+					
+					sb = new StringBuilder();
 					
 					break;
 				default:
@@ -73,19 +76,19 @@ public class ConfigHandler
 			case '=':
 				
 				if (test) {
-					System.out.println("=" + Byte.toString(this.b_d_m03e));
+					System.out.println("=" + Byte.toString(this.mode));
 				}
-				switch(this.b_d_m03e)
+				switch(this.mode)
 				{
 				
 				//init vars in container
 				case 4:
 					
-					s_curv4r = s_cur57r.trim();
+					dataString = sb.toString().trim();
 					
-					this.b_d_m03e = 5;
+					this.mode = 5;
 					
-					s_cur57r = new String();
+					sb = new StringBuilder();
 					
 					break;
 					
@@ -99,26 +102,26 @@ public class ConfigHandler
 			case ';':
 				
 				if (test) {
-					System.out.println(";" + Byte.toString(this.b_d_m03e));
+					System.out.println(";" + Byte.toString(this.mode));
 				}
-				switch(this.b_d_m03e)
+				switch(this.mode)
 				{
 				
 				//set var in HashMap container
 				
 				case 5:
 					
-					hs_curcn7.put(s_curv4r, s_cur57r.trim());
+					tempData.put(dataString, sb.toString().trim());
 					
 					//back into var get mode
-					this.b_d_m03e = 4;
+					this.mode = 4;
 					
-					s_cur57r = new String();
+					sb = new StringBuilder();
 					
 					break;
 				case 0:
 					
-					s_cur57r = new String();
+					sb = new StringBuilder();
 					
 					break;
 				default:
@@ -131,17 +134,17 @@ public class ConfigHandler
 			case '{':
 				
 				if (test) {
-					System.out.println("{" + Byte.toString(this.b_d_m03e));
+					System.out.println("{" + Byte.toString(this.mode));
 				}
-				switch(this.b_d_m03e)
+				switch(this.mode)
 				{
 				
 				//open container
 				case 3:
 					
-					hs_curcn7 = new HashMap<String, String>();
-					this.b_d_m03e = 4;
-					s_cur57r = new String();
+					tempData = new HashMap<String, String>();
+					this.mode = 4;
+					sb = new StringBuilder();
 					break;
 					
 				default:
@@ -153,18 +156,18 @@ public class ConfigHandler
 			case '}':
 				
 				if (test) {
-					System.out.println("}" + Byte.toString(this.b_d_m03e));
+					System.out.println("}" + Byte.toString(this.mode));
 				}
-				switch(this.b_d_m03e)
+				switch(this.mode)
 				{
 				
 				//close container
 				case 4:
 					
-					this.containers.put(s_curn4m, hs_curcn7);
-					if (test) { Console.WriteLine(hs_curcn7.get("Saltpeter")); }
-					s_curn4m = new String();
-					s_cur57r = new String();
+					this.containers.put(containerString, tempData);
+					if (test) { Console.WriteLine(tempData.get("Saltpeter")); }
+					containerString = new String();
+					sb = new StringBuilder();
 					break;
 					
 				case 5:
@@ -182,18 +185,18 @@ public class ConfigHandler
 			case '(':
 				
 				if (test) {
-					System.out.println("(" + Byte.toString(this.b_d_m03e));
+					System.out.println("(" + Byte.toString(this.mode));
 				}
-				switch(this.b_d_m03e)
+				switch(this.mode)
 				{
 				
 				//name of container
 				case 1:
 					
-					s_curn4m = s_cur57r.trim();
+					containerString = sb.toString().trim();
 					
-					this.b_d_m03e = 2;
-					s_cur57r = new String();
+					this.mode = 2;
+					sb = new StringBuilder();
 					break;
 					
 				default:
@@ -206,18 +209,18 @@ public class ConfigHandler
 			case ')':
 				
 				if (test) {
-					System.out.println(")" + Byte.toString(this.b_d_m03e));
+					System.out.println(")" + Byte.toString(this.mode));
 				}
-				switch(this.b_d_m03e)
+				switch(this.mode)
 				{
 				
 				//closing datatype
 				case 2:
 					
-					hs_curcn7.put(this.s_curcn7_typename, s_cur57r.trim());
+					tempData.put(this.typename, sb.toString().trim());
 					
-					this.b_d_m03e = 3;
-					s_cur57r = new String();
+					this.mode = 3;
+					sb = new StringBuilder();
 					break;
 					
 				default:
@@ -231,9 +234,7 @@ public class ConfigHandler
 				
 				if ( !(c == '\r' || c == '\n') )
 				{
-					
-					s_cur57r += Character.toString(c);
-					
+					sb.append(c);
 				}
 				break;
 				
@@ -256,7 +257,7 @@ public class ConfigHandler
 		Map<String, String> tempMap = new HashMap<>();
 		Map<String, String> tempContainerMap = this.containers.get(containerName);
 		
-		tempMap.put("Type", tempContainerMap.get(this.s_curcn7_typename));
+		tempMap.put("Type", tempContainerMap.get(this.typename));
 		tempMap.put("Value", tempContainerMap.get(item));
 		
 		return tempMap;

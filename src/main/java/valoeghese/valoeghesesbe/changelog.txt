@@ -1,3 +1,4 @@
+Date Palms in oasis (and date fruit!)
 Fixed item rendering and item placement for small bush
 Tooltips for island palm sapling and coal products
 Gunpowder Recipe now uses ore dictionary for saltpeter and sulphur

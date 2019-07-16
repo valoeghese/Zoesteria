@@ -48,7 +48,7 @@ import valoeghese.valoeghesesbe.world.trees.fruittree.WorldGenPeach;
 import valoeghese.valoeghesesbe.world.trees.fruittree.WorldGenPlum;
 import valoeghese.valoeghesesbe.world.trees.newzealand.WorldGenPohutukawa1;
 import valoeghese.valoeghesesbe.world.trees.newzealand.WorldGenPohutukawa2;
-import valoeghese.valoeghesesbe.world.trees.oasispalm.WorldGenOasisPalm2;
+import valoeghese.valoeghesesbe.world.trees.queenpalm.WorldGenQueenPalm;
 
 public class ModStructures implements IWorldGenerator
 {
@@ -147,7 +147,7 @@ public class ModStructures implements IWorldGenerator
 	private final WorldGenerator OAK_CARPET = new WorldGenModdedShrub(ModBlocks.LEAFCARPET_OAK.getDefaultState());
 	private final WorldGenerator SPRUCE_CARPET = new WorldGenModdedShrub(ModBlocks.LEAFCARPET_SPRUCE.getDefaultState());
 	
-	private final WorldGenerator QUEEN_PALM = new WorldGenOasisPalm2(false);
+	private final WorldGenerator QUEEN_PALM = new WorldGenQueenPalm(false);
 	
 	private final WorldGenerator PEACH = new WorldGenPeach(BlockLeavesPeach.EnumGenotype.PP, false);
 	private final WorldGenerator PLUM = new WorldGenPlum(false);

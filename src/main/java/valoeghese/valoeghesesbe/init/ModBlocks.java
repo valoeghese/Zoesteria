@@ -14,7 +14,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import valoeghese.valoeghesesbe.archived.BlockLeavesPalm;
 import valoeghese.valoeghesesbe.blocks.BlockCoconut;
 import valoeghese.valoeghesesbe.blocks.BlockDeadSoil;
 import valoeghese.valoeghesesbe.blocks.BlockLeafLitter;
@@ -31,6 +30,7 @@ import valoeghese.valoeghesesbe.blocks.VanadiumBlock;
 import valoeghese.valoeghesesbe.functional.BlockSaplingPeach;
 import valoeghese.valoeghesesbe.functional.tree.BlockLeavesBase;
 import valoeghese.valoeghesesbe.functional.tree.BlockLeavesEvil;
+import valoeghese.valoeghesesbe.functional.tree.BlockLeavesFruit;
 import valoeghese.valoeghesesbe.functional.tree.BlockLeavesPeach;
 import valoeghese.valoeghesesbe.functional.tree.BlockLogBase;
 import valoeghese.valoeghesesbe.functional.tree.BlockSaplingBase;
@@ -126,7 +126,10 @@ public class ModBlocks
 
 	public static final Block SAPLING_OCEAN_PALM = new BlockSaplingBase("sapling_ocean_palm", "ocean_palm");
 	public static final Block LEAVES_OCEAN_PALM = new BlockLeavesBase("leaves_ocean_palm", SAPLING_OCEAN_PALM);
-
+	
+	public static final Block SAPLING_DATE_PALM = new BlockSaplingBase("sapling_date_palm", "date_palm");
+	public static final Block LEAVES_DATE_PALM = new BlockLeavesFruit("leaves_date_palm", SAPLING_DATE_PALM);
+	
 	public static final Block LEAVES_POHUTUKAWA = new BlockLeavesPohutukawa("leaves_pohutukawa");
 	public static final Block LEAVES_POHUTUKAWA_BUD = new BlockLeavesPohutukawa("leaves_pohutukawa_bud");
 	public static final Block LEAVES_POHUTUKAWA_FLOWER = new BlockLeavesPohutukawa("leaves_pohutukawa_flower");

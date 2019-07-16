@@ -50,7 +50,7 @@ public class Main
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.COMMON_PROXY_CLASS)
 	public static CommonProxy proxy;
 	
-	public static final boolean isDDSSEdition = false;
+	public static final boolean isDDSSEdition = true;
 	
 	public static Logger logger;
 	

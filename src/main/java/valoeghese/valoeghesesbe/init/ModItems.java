@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -76,6 +77,7 @@ public class ModItems
 	public static final Item PEACH = new ItemFoodBase("fruit_peach", 4, 0.4F, false);
 	public static final Item NECTARINE = new ItemFoodBase("fruit_nectarine", 4, 0.3F, false);
 	public static final Item PLUM = new ItemFoodBase("fruit_plum", 3, 0.4F, false);
+	public static final Item DATE = new ItemFoodBase("fruit_date", 1, 1.1F, false);
 	
 	//Chestplate
 	public static final Item VANADIUM_CHEST = new ArmourBase("armour_chestplate_vanadium", ModMaterials.getVanadium(), 1, EntityEquipmentSlot.CHEST);

@@ -21,9 +21,9 @@ import net.minecraft.world.gen.feature.WorldGenSwamp;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import valoeghese.valoeghesesbe.init.ModBlocks;
+import valoeghese.valoeghesesbe.world.trees.WorldGenDatePalm;
 import valoeghese.valoeghesesbe.world.trees.WorldGenStrippedOak;
-import valoeghese.valoeghesesbe.world.trees.oasispalm.WorldGenOasisPalm;
-import valoeghese.valoeghesesbe.world.trees.oasispalm.WorldGenOasisPalm2;
+import valoeghese.valoeghesesbe.world.trees.queenpalm.WorldGenOasisPalm;
 import valoeghese.valoeghesesbe.world.worldtype.ILakeRemover;
 
 public class BiomeWasteland extends Biome implements ILakeRemover
@@ -34,7 +34,7 @@ public class BiomeWasteland extends Biome implements ILakeRemover
 	
 	protected static final WorldGenAbstractTree SWAMP = new WorldGenSwamp();
 	private static final WorldGenAbstractTree OASIS = new WorldGenOasisPalm(false);
-	private static final WorldGenAbstractTree OASIS2 = new WorldGenOasisPalm2();
+	private static final WorldGenAbstractTree OASIS2 = new WorldGenDatePalm();
 	
 	@Override
 	public int getSkyColorByTemp(float temp)

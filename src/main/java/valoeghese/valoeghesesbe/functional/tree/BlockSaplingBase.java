@@ -25,13 +25,14 @@ import valoeghese.valoeghesesbe.init.ModBlocks;
 import valoeghese.valoeghesesbe.init.ModItems;
 import valoeghese.valoeghesesbe.util.IHasModel;
 import valoeghese.valoeghesesbe.world.trees.WorldGenBluffPine;
+import valoeghese.valoeghesesbe.world.trees.WorldGenDatePalm;
 import valoeghese.valoeghesesbe.world.trees.WorldGenIslandPalm;
 import valoeghese.valoeghesesbe.world.trees.WorldGenManukaTree;
 import valoeghese.valoeghesesbe.world.trees.WorldGenOceanPalm;
 import valoeghese.valoeghesesbe.world.trees.evil.WorldGenEvilTreeSapling;
 import valoeghese.valoeghesesbe.world.trees.fruittree.WorldGenPlum;
 import valoeghese.valoeghesesbe.world.trees.newzealand.WorldGenPohutukawa1;
-import valoeghese.valoeghesesbe.world.trees.oasispalm.WorldGenOasisPalm2;
+import valoeghese.valoeghesesbe.world.trees.queenpalm.WorldGenQueenPalm;
 
 public class BlockSaplingBase extends BlockBush implements IGrowable, IHasModel
 {	
@@ -89,7 +90,7 @@ public class BlockSaplingBase extends BlockBush implements IGrowable, IHasModel
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
         IBlockState soil = worldIn.getBlockState(pos.down());
-    	if(this.type == "oasis_palm" || this.type == "pohutukawa" || this.type == "ocean_palm" || this.type == "island_palm")
+    	if(this.type == "oasis_palm" || this.type == "pohutukawa" || this.type == "ocean_palm" || this.type == "island_palm" || this.type == "date_palm")
     	{
     		return super.canPlaceBlockAt(worldIn, pos) || soil.getBlock() == Blocks.SAND;
     	}
@@ -158,7 +159,7 @@ public class BlockSaplingBase extends BlockBush implements IGrowable, IHasModel
 	public void generateTree(World world, Random rand, BlockPos pos, IBlockState state)
 	{
 		if(!TerrainGen.saplingGrowTree(world, rand, pos)) return;
-		WorldGenerator gen = (WorldGenerator)new WorldGenOasisPalm2();
+		WorldGenerator gen = (WorldGenerator)new WorldGenQueenPalm();
 		boolean flag = false;
 		int i = 0;
 		int j = 0;
@@ -167,7 +168,7 @@ public class BlockSaplingBase extends BlockBush implements IGrowable, IHasModel
 		switch(this.type)
 		{
 		case "oasis_palm":
-			gen = new WorldGenOasisPalm2(true);
+			gen = new WorldGenQueenPalm(true);
 			break;
 		case "forest_evil":
 			gen = new WorldGenEvilTreeSapling();
@@ -190,6 +191,10 @@ public class BlockSaplingBase extends BlockBush implements IGrowable, IHasModel
 			break;
 		case "plum":
 			gen = new WorldGenPlum(true);
+			break;
+		case "date_palm":
+			gen = new WorldGenDatePalm(true);
+			break;
 		}
 		
 		IBlockState iblockstate = Blocks.AIR.getDefaultState();
@@ -237,7 +242,7 @@ public class BlockSaplingBase extends BlockBush implements IGrowable, IHasModel
 	@Override
 	protected boolean canSustainBush(IBlockState state) 
 	{
-		if (this.type == "oasis_palm" || this.type == "pohutukawa" || this.type == "ocean_palm" || this.type == "island_palm")
+		if (this.type == "oasis_palm" || this.type == "pohutukawa" || this.type == "ocean_palm" || this.type == "island_palm" || this.type == "date_palm")
 		{
 			return state.getMaterial() == Material.GROUND || state.getMaterial() == Material.GRASS || state.getMaterial() == Material.PLANTS || state.getMaterial() == Material.SAND;
 		}

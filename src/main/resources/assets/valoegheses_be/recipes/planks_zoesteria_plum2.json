@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "R",
+        "R"
+    ],
+    
+    "key":
+    {
+        "R":
+        {
+            "item": "valoegheses_be:slab_zoesteria_plum"
+        }
+    },
+    
+    "result":
+    {
+        "item": "valoegheses_be:planks_zoesteria_plum",
+        "count": 1
+    }
+}

@@ -94,13 +94,16 @@ public class WorldGenOceanPalm extends WorldGenAbstractTree
 		this.setLeafSpread(worldIn, pos.down(2), 2);
 		
 		this.setLeafSpread(worldIn, pos.down(), 1);
+		this.setLeafPoints(worldIn, pos.down(), 1);
 		this.setLeafPoints(worldIn, pos.down(), 2);
 		
 		this.setLeafPoints(worldIn, pos, 1);
 		
 		this.setBlockAndNotifyAdequately(worldIn, pos.up(), LEAF);
+		this.setLeafPoints(worldIn, pos.up(), 1);
 		this.setLeafSpread(worldIn, pos.up(), 1);
 		
+		this.setLeafPoints(worldIn, pos.up(2), 1);
 		this.setLeafPoints(worldIn, pos.up(2), 2);
 		
 		

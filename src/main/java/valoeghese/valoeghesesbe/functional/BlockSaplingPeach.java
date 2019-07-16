@@ -35,7 +35,7 @@ import valoeghese.valoeghesesbe.world.trees.WorldGenOceanPalm;
 import valoeghese.valoeghesesbe.world.trees.evil.WorldGenEvilTreeSapling;
 import valoeghese.valoeghesesbe.world.trees.fruittree.WorldGenPeach;
 import valoeghese.valoeghesesbe.world.trees.newzealand.WorldGenPohutukawa1;
-import valoeghese.valoeghesesbe.world.trees.oasispalm.WorldGenOasisPalm2;
+import valoeghese.valoeghesesbe.world.trees.queenpalm.WorldGenQueenPalm;
 
 public class BlockSaplingPeach extends BlockSaplingBase
 {
